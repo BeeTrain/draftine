@@ -2,13 +2,13 @@ package plugin
 
 import AndroidDependencies.navigation
 import AndroidDependencies.ui
+import CoreModules.archModule
+import CoreModules.uiModule
 import DIDependencies.koin
 import Plugins
-import internal.implementation
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
-import org.gradle.kotlin.dsl.project
 
 class FeatureModulePlugin : Plugin<Project> {
 
@@ -31,7 +31,8 @@ class FeatureModulePlugin : Plugin<Project> {
             ui()
             koin()
             navigation()
-            implementation(project(":arch"))
+            archModule()
+            uiModule()
         }
     }
 }

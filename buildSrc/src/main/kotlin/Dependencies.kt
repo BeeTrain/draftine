@@ -2,6 +2,7 @@
 
 import internal.implementation
 import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.project
 
 const val kotlinVersion = "1.6.21"
 
@@ -95,5 +96,16 @@ object DIDependencies {
     fun DependencyHandler.koin() = apply {
         implementation(core)
         implementation(android)
+    }
+}
+
+internal object CoreModules {
+
+    fun DependencyHandler.archModule() = apply {
+        implementation(project(":arch"))
+    }
+
+    fun DependencyHandler.uiModule() = apply {
+        implementation(project(":ui"))
     }
 }
