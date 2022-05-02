@@ -1,3 +1,4 @@
+import AndroidDependencies.navigation
 import AndroidDependencies.ui
 
 plugins {
@@ -6,4 +7,5 @@ plugins {
 
 dependencies {
     ui()
+    navigation()
 }

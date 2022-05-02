@@ -12,8 +12,11 @@ import dev.draftine.arch.presentation.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.StateFlow
 
 abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) {
+
     abstract val viewModel: BaseViewModel?
+
     private var runOnResume: Runnable? = null
+
     private var isAfterOnSavedState: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -7,6 +7,7 @@ import org.gradle.kotlin.dsl.project
 const val kotlinVersion = "1.6.21"
 
 object Plugins {
+
     const val applicationModule = "application-module-plugin"
     const val featureModule = "feature-module-plugin"
     const val apiModule = "api-module-plugin"
@@ -21,6 +22,7 @@ object Plugins {
     const val kotlinKapt = "kotlin-kapt"
     const val javaLibrary = "java-library"
 
+    const val navigation = "androidx.navigation.safeargs.kotlin"
 }
 
 object KotlinDependencies {
