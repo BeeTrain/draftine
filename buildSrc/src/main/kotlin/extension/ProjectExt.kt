@@ -18,7 +18,7 @@ fun Project.applyScreenModules() {
                     it.isBuildModule.not() &&
                     it.name != projectName &&
                     it.name != "buildSrc" &&
-                    it.name.startsWith("screen")
+                    it.name.endsWith("-screen")
             }
             .forEach { module ->
                 val moduleName = ":${module.name}"

@@ -3,20 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/application_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dev.draftine.app.presentation.view.AppActivity">
+    tools:context="dev.draftine.app.presentation.view.ApplicationActivity">
 
     <fragment
         android:id="@+id/application_nav_host"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:name="dev.draftine.splash.presentation.view.SplashFragment"
+        android:name="dev.draftine.app.presentation.view.ApplicationFragment"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/application_graph"
         tools:ignore="FragmentTagUsage" />
 
 </dev.draftine.ui.container.constraint.ConstraintContainer>
