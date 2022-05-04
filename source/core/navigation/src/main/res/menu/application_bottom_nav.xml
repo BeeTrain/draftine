@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/calendar_graph"
+        android:contentDescription="@string/calendar_screen_title"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/calendar_screen_title" />
+    <item
+        android:id="@+id/feed_graph"
+        android:contentDescription="@string/feed_screen_title"
+        android:icon="@drawable/ic_feed"
+        android:title="@string/feed_screen_title" />
+    <item
+        android:id="@+id/profile_graph"
+        android:contentDescription="@string/profile_screen_title"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile_screen_title" />
+</menu>

@@ -11,9 +11,9 @@ import dev.draftine.arch.presentation.observer.LoadingObserver
 import dev.draftine.arch.presentation.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.StateFlow
 
-abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) {
+abstract class BaseFragment<T : BaseViewModel>(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) {
 
-    abstract val viewModel: BaseViewModel?
+    abstract val viewModel: T?
 
     private var runOnResume: Runnable? = null
 

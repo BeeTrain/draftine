@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val javaVersion = JavaVersion.VERSION_11
 val kotlinVersion = "1.6.21"
 val buildGradlePluginVersion = "7.1.3"
-val navigationVersion = "2.4.1"
+val navigationVersion = "2.4.2"
 
 plugins {
     `kotlin-dsl`

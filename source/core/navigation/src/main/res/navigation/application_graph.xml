@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/application_graph"
-    app:startDestination="@id/splash">
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/splash">
 
     <fragment
         android:id="@+id/splash"
@@ -13,16 +13,11 @@
 
         <action
             android:id="@+id/actionOpenMain"
-            app:destination="@id/main"
-            app:popUpTo="@id/application_graph"
-            app:popUpToInclusive="true" />
+            app:destination="@id/calendar_graph" />
     </fragment>
 
-    <fragment
-        android:id="@+id/main"
-        android:name="dev.draftine.main.presentation.view.MainFragment"
-        tools:layout="@layout/main_fragment">
-
-    </fragment>
+    <include app:graph="@navigation/calendar_graph"/>
+    <include app:graph="@navigation/feed_graph"/>
+    <include app:graph="@navigation/profile_graph"/>
 
 </navigation>

@@ -56,7 +56,7 @@ object AndroidDependencies {
         const val constraintLayout = "2.1.3"
         const val lifecycle = "2.4.1"
         const val recyclerView = "1.2.1"
-        const val navigation = "2.4.1"
+        const val navigation = "2.4.2"
         const val fragment = "1.3.4"
     }
 
@@ -70,19 +70,22 @@ object AndroidDependencies {
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
 
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationRuntime = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 
 
     fun DependencyHandler.ui() = apply {
         implementation(coreKtx)
-        implementation(appCompat)
+        implementation(fragment)
         implementation(material)
+        implementation(appCompat)
         implementation(recyclerView)
         implementation(constraintLayout)
     }
 
     fun DependencyHandler.navigation() = apply {
         implementation(navigationFragment)
+        implementation(navigationRuntime)
         implementation(navigationUi)
     }
 }
@@ -109,5 +112,9 @@ internal object CoreModules {
 
     fun DependencyHandler.uiModule() = apply {
         implementation(project(":ui"))
+    }
+
+    fun DependencyHandler.iconsModule() = apply {
+        implementation(project(":icons"))
     }
 }

@@ -3,6 +3,7 @@ package plugin
 import AndroidDependencies.navigation
 import AndroidDependencies.ui
 import CoreModules.archModule
+import CoreModules.iconsModule
 import CoreModules.uiModule
 import DIDependencies.koin
 import Plugins
@@ -33,6 +34,7 @@ class FeatureModulePlugin : Plugin<Project> {
             navigation()
             archModule()
             uiModule()
+            iconsModule()
         }
     }
 }

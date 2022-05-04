@@ -8,17 +8,26 @@
     android:layout_height="match_parent"
     tools:context="dev.draftine.app.presentation.view.ApplicationActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/application_nav_host"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:name="dev.draftine.app.presentation.view.ApplicationFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/application_bottom_nav_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/application_graph"
-        tools:ignore="FragmentTagUsage" />
+        app:navGraph="@navigation/application_graph" />
+
+    <dev.draftine.ui.navigation.BottomNavBar
+        android:id="@+id/application_bottom_nav_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/application_bottom_nav" />
 
 </dev.draftine.ui.container.constraint.ConstraintContainer>

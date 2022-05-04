@@ -9,6 +9,7 @@ plugins {
 }
 
 dependencies {
+    implementation(projects.arch)
     implementation(projects.ui)
     applyScreenModules()
     navigation()

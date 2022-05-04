@@ -1,0 +1,3 @@
+package dev.draftine.arch.presentation.fragment
+
+interface BottomNavigationFragment
