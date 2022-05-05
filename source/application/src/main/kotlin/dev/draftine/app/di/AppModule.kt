@@ -1,7 +1,7 @@
 package dev.draftine.app.di
 
 import dev.draftine.app.presentation.di.applicationModule
-import dev.draftine.calendar.presentation.di.calendarModule
+import dev.draftine.calendar.presentation.di.mainModule
 import dev.draftine.feed.presentation.di.feedModule
 import dev.draftine.navigation.di.navigationModule
 import dev.draftine.profile.presentation.di.profileModule
@@ -13,7 +13,7 @@ object AppModule {
         applicationModule,
         navigationModule,
         splashModule,
-        calendarModule,
+        mainModule,
         feedModule,
         profileModule,
     )

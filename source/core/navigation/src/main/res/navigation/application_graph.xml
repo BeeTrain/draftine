@@ -13,10 +13,10 @@
 
         <action
             android:id="@+id/actionOpenMain"
-            app:destination="@id/calendar_graph" />
+            app:destination="@id/main_graph" />
     </fragment>
 
-    <include app:graph="@navigation/calendar_graph"/>
+    <include app:graph="@navigation/main_graph"/>
     <include app:graph="@navigation/feed_graph"/>
     <include app:graph="@navigation/profile_graph"/>
 

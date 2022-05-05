@@ -8,7 +8,7 @@
     <dev.draftine.ui.text.TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/calendar_screen_title"
+        android:text="@string/main_screen_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
