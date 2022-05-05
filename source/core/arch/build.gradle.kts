@@ -1,5 +1,6 @@
 import AndroidDependencies.navigation
 import AndroidDependencies.ui
+import DIDependencies.koin
 
 plugins {
     id(Plugins.androidModule)
@@ -7,5 +8,6 @@ plugins {
 
 dependencies {
     ui()
+    koin()
     navigation()
 }

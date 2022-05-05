@@ -1,4 +1,4 @@
-package dev.draftine.calendar.presentation.viewmodel
+package dev.draftine.main.presentation.viewmodel
 
 import dev.draftine.arch.presentation.viewmodel.BaseViewModel
 

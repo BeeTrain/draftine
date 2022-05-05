@@ -10,8 +10,15 @@ import dev.draftine.arch.extension.observeOnCreated
 import dev.draftine.arch.presentation.observer.LoadingObserver
 import dev.draftine.arch.presentation.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.StateFlow
+import org.koin.androidx.scope.createScope
+import org.koin.core.component.KoinScopeComponent
+import org.koin.core.scope.Scope
 
-abstract class BaseFragment<T : BaseViewModel>(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) {
+abstract class BaseFragment<T : BaseViewModel>(@LayoutRes contentLayoutId: Int) :
+    Fragment(contentLayoutId),
+    KoinScopeComponent {
+
+    override val scope: Scope by lazy(LazyThreadSafetyMode.NONE) { createScope(this) }
 
     abstract val viewModel: T?
 
@@ -26,6 +33,11 @@ abstract class BaseFragment<T : BaseViewModel>(@LayoutRes contentLayoutId: Int) 
             setupErrorHandling(it.error)
             setupLoading(it.loading)
         }
+    }
+
+    override fun onDestroy() {
+        scope.close()
+        super.onDestroy()
     }
 
     private fun setupErrorHandling(errorState: StateFlow<Throwable?>) {
