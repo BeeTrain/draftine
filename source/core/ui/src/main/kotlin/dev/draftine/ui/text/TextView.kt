@@ -5,12 +5,15 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import dev.draftine.ui.R
 import dev.draftine.ui.extension.getAttrResId
+import dev.draftine.ui.extension.getColorExt
 import dev.draftine.ui.extension.setTextAppearanceExt
 
 class TextView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : AppCompatTextView(context, attrs) {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : AppCompatTextView(context, attrs, defStyleAttr) {
+
     init {
         attrs?.let { applyAttributes(it) }
     }
@@ -21,6 +24,10 @@ class TextView @JvmOverloads constructor(
             val type = TextType.values()[typedArray.getInteger(R.styleable.TextView_textType, TextType.NONE.ordinal)]
             if (type != TextType.NONE) {
                 applyTextType(type)
+            }
+            val textColorRes = typedArray.getResourceId(R.styleable.TextView_android_textColor, 0)
+            if (textColorRes != 0) {
+                setTextColor(context.getColorExt(textColorRes))
             }
         } finally {
             typedArray.recycle()

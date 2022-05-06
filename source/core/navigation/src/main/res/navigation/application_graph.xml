@@ -16,8 +16,8 @@
             app:destination="@id/main_graph" />
     </fragment>
 
-    <include app:graph="@navigation/main_graph"/>
-    <include app:graph="@navigation/feed_graph"/>
-    <include app:graph="@navigation/profile_graph"/>
+    <include app:graph="@navigation/main_graph" />
+    <include app:graph="@navigation/feed_graph" />
+    <include app:graph="@navigation/profile_graph" />
 
 </navigation>

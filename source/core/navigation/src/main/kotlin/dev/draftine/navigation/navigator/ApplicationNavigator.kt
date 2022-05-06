@@ -5,17 +5,17 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.FragmentNavigator
+import dev.draftine.navigation.R
 import dev.draftine.splash.presentation.navigation.SplashNavigator
 import dev.draftine.splash.presentation.view.SplashFragmentDirections
 import dev.draftine.ui.extension.setFadeAnim
 import dev.draftine.ui.extension.setHorizontalFullInAnim
 
-class ApplicationNavigator:
+class ApplicationNavigator :
     AppNavigator,
     SplashNavigator {
 
     private var appNavController: NavController? = null
-
 
     override fun bindAppController(navController: NavController) {
         appNavController = navController
@@ -28,7 +28,10 @@ class ApplicationNavigator:
     override fun fromSplashToMain() {
         appNavController?.navigate(
             action = SplashFragmentDirections.actionOpenMain(),
-            navOptions = NavOptions.Builder().setHorizontalFullInAnim().build()
+            navOptions = NavOptions.Builder()
+                .setPopUpTo(R.id.splash, true)
+                .setHorizontalFullInAnim()
+                .build()
         )
     }
 

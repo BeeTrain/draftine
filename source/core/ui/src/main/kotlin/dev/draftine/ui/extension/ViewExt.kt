@@ -4,12 +4,20 @@ import android.graphics.Rect
 import android.os.SystemClock
 import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.annotation.AnimRes
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
+import androidx.annotation.Px
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.marginBottom
+import androidx.core.view.marginLeft
+import androidx.core.view.marginRight
+import androidx.core.view.marginTop
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updateMargins
 
 const val DEFAULT_TIME_OUT = 350L
 
@@ -90,5 +98,16 @@ private fun getOnClickWithDelayListener(delayMs: Long, action: (View) -> Unit): 
                 action(v)
             }
         }
+    }
+}
+
+fun View.updateMargin(
+    @Px left: Int = marginLeft,
+    @Px top: Int = marginTop,
+    @Px right: Int = marginRight,
+    @Px bottom: Int = marginBottom
+) {
+    updateLayoutParams<ViewGroup.MarginLayoutParams> {
+        updateMargins(left, top, right, bottom)
     }
 }

@@ -2,16 +2,16 @@
 <resources>
 
     <declare-styleable name="DefaultAttrs">
-        <attr name="title" format="string" />
-        <attr name="label" format="string" />
-        <attr name="caption" format="string" />
-        <attr name="icon" format="reference" />
-        <attr name="isChecked" format="boolean" />
-        <attr name="menu" format="reference" />
+        <attr format="string" name="title" />
+        <attr format="string" name="label" />
+        <attr format="string" name="caption" />
+        <attr format="reference" name="icon" />
+        <attr format="boolean" name="isChecked" />
+        <attr format="reference" name="menu" />
     </declare-styleable>
 
     <declare-styleable name="TextView">
-        <attr name="textType" format="enum">
+        <attr format="enum" name="textType">
             <enum name="None" value="0" />
             <enum name="Headline1" value="1" />
             <enum name="Headline2" value="2" />
@@ -27,5 +27,6 @@
             <enum name="Caption" value="12" />
             <enum name="Overline" value="13" />
         </attr>
+        <attr format="color" name="android:textColor" />
     </declare-styleable>
 </resources>
