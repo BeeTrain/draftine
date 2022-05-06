@@ -104,6 +104,19 @@ object DIDependencies {
     }
 }
 
+object MiscDependencies {
+
+    object Versions {
+        const val lottie = "5.1.1"
+    }
+
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+
+    fun DependencyHandler.lottie() = apply {
+        implementation(lottie)
+    }
+}
+
 internal object CoreModules {
 
     fun DependencyHandler.archModule() = apply {

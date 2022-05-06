@@ -6,6 +6,7 @@ import CoreModules.archModule
 import CoreModules.iconsModule
 import CoreModules.uiModule
 import DIDependencies.koin
+import MiscDependencies.lottie
 import Plugins
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -30,6 +31,7 @@ class FeatureModulePlugin : Plugin<Project> {
     private fun Project.applyDependencies() {
         dependencies.apply {
             ui()
+            lottie()
             koin()
             navigation()
             archModule()
