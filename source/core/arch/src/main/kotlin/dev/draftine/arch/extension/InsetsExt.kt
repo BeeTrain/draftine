@@ -1,4 +1,4 @@
-package dev.draftine.ui.extension
+package dev.draftine.arch.extension
 
 import android.app.Activity
 import android.view.View

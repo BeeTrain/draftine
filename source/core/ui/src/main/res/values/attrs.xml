@@ -29,4 +29,20 @@
         </attr>
         <attr format="color" name="android:textColor" />
     </declare-styleable>
+
+    <declare-styleable name="ConstraintContainer">
+        <attr format="reference" name="android:background" />
+    </declare-styleable>
+
+    <declare-styleable name="CoordinatorContainer">
+        <attr format="reference" name="android:background" />
+    </declare-styleable>
+
+    <declare-styleable name="FrameContainer">
+        <attr format="reference" name="android:background" />
+    </declare-styleable>
+
+    <declare-styleable name="MotionContainer">
+        <attr format="reference" name="android:background" />
+    </declare-styleable>
 </resources>

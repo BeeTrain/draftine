@@ -6,6 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import dev.draftine.arch.extension.OnSystemInsetsChangedListener
 import dev.draftine.arch.extension.observeOnCreated
 import dev.draftine.arch.presentation.observer.LoadingObserver
 import dev.draftine.arch.presentation.viewmodel.BaseViewModel
@@ -16,6 +17,7 @@ import org.koin.core.scope.Scope
 
 abstract class BaseFragment<T : BaseViewModel>(@LayoutRes contentLayoutId: Int) :
     Fragment(contentLayoutId),
+    OnSystemInsetsChangedListener,
     KoinScopeComponent {
 
     override val scope: Scope by lazy(LazyThreadSafetyMode.NONE) { createScope(this) }
@@ -40,6 +42,31 @@ abstract class BaseFragment<T : BaseViewModel>(@LayoutRes contentLayoutId: Int) 
         super.onDestroy()
     }
 
+    override fun onResume() {
+        super.onResume()
+        runOnResume?.run()
+        runOnResume = null
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        isAfterOnSavedState = true
+    }
+
+    override fun onApplySystemInsets(insetTop: Int, insetBottom: Int) = Unit
+
+    fun postOnResume(run: Runnable) {
+        if (isAfterOnSavedState) {
+            runOnResume = run
+        } else {
+            run.run()
+        }
+    }
+
+    protected open fun createLoadingObserver(): Observer<Boolean?> = LoadingObserver(null)
+
+    protected open fun createErrorObserver(): Observer<Throwable?>? = null
+
     private fun setupErrorHandling(errorState: StateFlow<Throwable?>) {
         createErrorObserver()?.let { observer ->
             errorState.observeOnCreated(lifecycleScope) { error ->
@@ -55,27 +82,4 @@ abstract class BaseFragment<T : BaseViewModel>(@LayoutRes contentLayoutId: Int) 
             }
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-        runOnResume?.run()
-        runOnResume = null
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        isAfterOnSavedState = true
-    }
-
-    fun postOnResume(run: Runnable) {
-        if (isAfterOnSavedState) {
-            runOnResume = run
-        } else {
-            run.run()
-        }
-    }
-
-    protected open fun createLoadingObserver(): Observer<Boolean?> = LoadingObserver(null)
-
-    protected open fun createErrorObserver(): Observer<Throwable?>? = null
 }
