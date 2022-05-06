@@ -45,4 +45,8 @@
     <declare-styleable name="MotionContainer">
         <attr format="reference" name="android:background" />
     </declare-styleable>
+
+    <declare-styleable name="Toolbar">
+        <attr format="boolean" name="separatorEnabled" />
+    </declare-styleable>
 </resources>

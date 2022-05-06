@@ -38,17 +38,38 @@ class Toolbar
     }
 
     private val titleTextBoundsRect by unsafeLazy { Rect() }
-
     private val titleView by unsafeLazy { accessField<TextView>(TITLE_TEXT_VIEW_FIELD) }
     private val subTitleView by unsafeLazy { accessField<TextView>(SUB_TITLE_TEXT_VIEW_FIELD) }
 
+    var isSeparatorEnabled = true
+        set(value) {
+            if (field == value) {
+                return
+            }
+            field = value
+            invalidate()
+        }
+
     init {
         applyAppTheme()
+        attrs?.let { applyAttributes(it) }
+    }
+
+    private fun applyAttributes(attrs: AttributeSet) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Toolbar)
+        try {
+            isSeparatorEnabled = typedArray.getBoolean(R.styleable.Toolbar_separatorEnabled, false)
+        } finally {
+            typedArray.recycle()
+        }
     }
 
     override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
-        canvas.drawLine(0F, height.toFloat(), width.toFloat(), height.toFloat(), dividerPaint)
+
+        if (isSeparatorEnabled) {
+            canvas.drawLine(0F, height.toFloat(), width.toFloat(), height.toFloat(), dividerPaint)
+        }
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
