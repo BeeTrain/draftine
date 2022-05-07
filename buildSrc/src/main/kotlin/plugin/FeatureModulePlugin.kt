@@ -6,6 +6,7 @@ import CoreModules.archModule
 import CoreModules.iconsModule
 import CoreModules.uiModule
 import DIDependencies.koin
+import LintDependencies.lintChecks
 import MiscDependencies.lottie
 import Plugins
 import org.gradle.api.Plugin
@@ -30,6 +31,8 @@ class FeatureModulePlugin : Plugin<Project> {
 
     private fun Project.applyDependencies() {
         dependencies.apply {
+            lintChecks()
+
             ui()
             lottie()
             koin()

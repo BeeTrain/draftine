@@ -7,9 +7,8 @@ object AppConfig {
     const val compileSdkVersion = 32
     const val minSdkVersion = 26
     const val targetSdkVersion = 32
-    const val buildToolsVersion = "30.0.2"
 
-    val javaVersion = JavaVersion.VERSION_1_8
+    val javaVersion = JavaVersion.VERSION_11
 }
 
 enum class BuildTypes(val title: String, val isMinifyEnabled: Boolean) {

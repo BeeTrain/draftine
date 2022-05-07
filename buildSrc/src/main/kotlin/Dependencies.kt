@@ -1,8 +1,10 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
 import CoreModules.koinModules
+import internal.compileOnly
 import internal.implementation
 import internal.kapt
+import internal.lintChecks
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.project
 
@@ -20,6 +22,7 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "kotlin-android"
 
+    const val kotlin = "kotlin"
     const val kotlinJVM = "org.jetbrains.kotlin.jvm"
     const val kotlinKapt = "kotlin-kapt"
     const val javaLibrary = "java-library"
@@ -133,6 +136,25 @@ object AnnotationProcessingDependencies {
         implementation(autoService)
         kapt(fixGuavaPackage)
         implementation(fixGuavaPackage)
+    }
+}
+
+object LintDependencies {
+
+    object Versions {
+        const val lint = "27.1.1"
+    }
+
+    const val lintApi = "com.android.tools.lint:lint-api:${Versions.lint}"
+    const val lintChecks = "com.android.tools.lint:lint-checks:${Versions.lint}"
+
+    fun DependencyHandler.lint() = apply {
+        compileOnly(lintApi)
+        compileOnly(lintChecks)
+    }
+
+    fun DependencyHandler.lintChecks() = apply {
+        lintChecks(project(":lint"))
     }
 }
 

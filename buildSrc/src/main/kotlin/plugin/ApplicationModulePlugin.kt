@@ -4,6 +4,7 @@ import AndroidDependencies.navigation
 import AndroidDependencies.ui
 import AppConfig
 import DIDependencies.koin
+import LintDependencies.lintChecks
 import Plugins
 import internal.applicationExtension
 import internal.configureProjectModules
@@ -34,7 +35,6 @@ class ApplicationModulePlugin : Plugin<Project> {
     private fun Project.applyApplicationConfig() {
         applicationExtension.apply {
             compileSdk = AppConfig.compileSdkVersion
-            buildToolsVersion = AppConfig.buildToolsVersion
 
             defaultConfig {
                 applicationId = AppConfig.applicationId
@@ -54,6 +54,7 @@ class ApplicationModulePlugin : Plugin<Project> {
     private fun Project.applyDependencies() {
         dependencies.apply {
             configureProjectModules()
+            lintChecks()
 
             ui()
             koin()

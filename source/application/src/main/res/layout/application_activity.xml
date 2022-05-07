@@ -19,7 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/application_graph" />
+        app:navGraph="@navigation/application_graph"
+        tools:ignore="ExternalViewUsage" />
 
     <dev.draftine.ui.navigation.BottomNavBar
         android:id="@+id/application_bottom_nav_bar"
