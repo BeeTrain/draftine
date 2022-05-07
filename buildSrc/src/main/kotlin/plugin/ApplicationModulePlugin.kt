@@ -27,6 +27,7 @@ class ApplicationModulePlugin : Plugin<Project> {
         plugins.run {
             apply(plugin = Plugins.androidApplication)
             apply(plugin = Plugins.kotlinModule)
+            apply(plugin = Plugins.kotlinKapt)
         }
     }
 

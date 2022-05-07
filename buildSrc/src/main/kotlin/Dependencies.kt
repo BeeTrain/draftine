@@ -1,6 +1,8 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
+import CoreModules.koinModules
 import internal.implementation
+import internal.kapt
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.project
 
@@ -73,7 +75,6 @@ object AndroidDependencies {
     const val navigationRuntime = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 
-
     fun DependencyHandler.ui() = apply {
         implementation(coreKtx)
         implementation(fragment)
@@ -101,6 +102,7 @@ object DIDependencies {
     fun DependencyHandler.koin() = apply {
         implementation(core)
         implementation(android)
+        koinModules()
     }
 }
 
@@ -117,6 +119,25 @@ object MiscDependencies {
     }
 }
 
+object AnnotationProcessingDependencies {
+
+    object Versions {
+        const val autoService = "1.0-rc4"
+        const val kotlinPoet = "1.11.0"
+    }
+
+    val autoService = "com.google.auto.service:auto-service:${Versions.autoService}"
+    val fixGuavaPackage = "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"
+    val kotlinPoet = "com.squareup:kotlinpoet:${Versions.kotlinPoet}"
+
+    fun DependencyHandler.annotationProcessing() = apply {
+        kapt(autoService)
+        implementation(autoService)
+        kapt(fixGuavaPackage)
+        implementation(fixGuavaPackage)
+    }
+}
+
 internal object CoreModules {
 
     fun DependencyHandler.archModule() = apply {
@@ -129,5 +150,10 @@ internal object CoreModules {
 
     fun DependencyHandler.iconsModule() = apply {
         implementation(project(":icons"))
+    }
+
+    fun DependencyHandler.koinModules() = apply {
+        implementation(project(":koin-module-annotation"))
+        kapt(project(":koin-module-annotation-processor"))
     }
 }
