@@ -122,13 +122,11 @@ object MiscDependencies {
 object AnnotationProcessingDependencies {
 
     object Versions {
-        const val autoService = "1.0-rc4"
-        const val kotlinPoet = "1.11.0"
+        const val autoService = "1.0.1"
     }
 
     val autoService = "com.google.auto.service:auto-service:${Versions.autoService}"
     val fixGuavaPackage = "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"
-    val kotlinPoet = "com.squareup:kotlinpoet:${Versions.kotlinPoet}"
 
     fun DependencyHandler.annotationProcessing() = apply {
         kapt(autoService)

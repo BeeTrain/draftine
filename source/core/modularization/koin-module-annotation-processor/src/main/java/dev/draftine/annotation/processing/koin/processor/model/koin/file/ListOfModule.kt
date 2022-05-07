@@ -1,4 +1,4 @@
-package dev.draftine.annotation.processing.koin.processor.file.model.koin
+package dev.draftine.annotation.processing.koin.processor.model.koin.file
 
 internal class ListOfModule(private val listItems: String) {
 

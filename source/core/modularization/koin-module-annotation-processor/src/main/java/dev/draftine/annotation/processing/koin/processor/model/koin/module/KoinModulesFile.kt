@@ -1,6 +1,6 @@
-package dev.draftine.annotation.processing.koin.processor.file.model.koin.module
+package dev.draftine.annotation.processing.koin.processor.model.koin.module
 
-import dev.draftine.annotation.processing.koin.processor.file.model.koin.KoinModuleProvider
+import dev.draftine.annotation.processing.koin.processor.model.koin.provider.KoinModuleProvider
 import java.io.File
 
 internal class KoinModulesFile(

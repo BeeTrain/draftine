@@ -8,10 +8,10 @@ import dev.draftine.annotation.processing.koin.processor.extension.KOIN_PROCESSO
 import dev.draftine.annotation.processing.koin.processor.extension.KOIN_PROVIDER_SUFFIX
 import dev.draftine.annotation.processing.koin.processor.extension.KOTLIN_FILE_EXT
 import dev.draftine.annotation.processing.koin.processor.extension.formatName
+import dev.draftine.annotation.processing.koin.processor.extension.toKoinModuleProvider
 import dev.draftine.annotation.processing.koin.processor.extension.toProviderName
-import dev.draftine.annotation.processing.koin.processor.file.model.koin.KoinModuleProvider
-import dev.draftine.annotation.processing.koin.processor.file.model.koin.module.KoinModulesFile
-import dev.draftine.annotation.processing.koin.processor.mapper.KoinModuleProviderMapper
+import dev.draftine.annotation.processing.koin.processor.model.koin.module.KoinModulesFile
+import dev.draftine.annotation.processing.koin.processor.model.koin.provider.KoinModuleProvider
 import javax.annotation.processing.ProcessingEnvironment
 import javax.annotation.processing.RoundEnvironment
 
@@ -19,8 +19,6 @@ internal class KoinApplicationModuleGenerator(
     private val roundEnvironment: RoundEnvironment,
     private val processingEnvironment: ProcessingEnvironment
 ) {
-
-    private val koinModuleProviderMapper by lazy { KoinModuleProviderMapper() }
 
     fun generate() {
         val koinApplicationElement = roundEnvironment.getElementsAnnotatedWith(KoinApplication::class.java)
@@ -56,6 +54,6 @@ internal class KoinApplicationModuleGenerator(
             .getPackageElement(KOIN_PROCESSOR_PACKAGE)
             .enclosedElements
             .filter { it.simpleName.endsWith("${KOIN_PROVIDER_SUFFIX}Kt") }
-            .map { koinModuleProviderMapper.map(it) }
+            .map { it.toKoinModuleProvider() }
     }
 }

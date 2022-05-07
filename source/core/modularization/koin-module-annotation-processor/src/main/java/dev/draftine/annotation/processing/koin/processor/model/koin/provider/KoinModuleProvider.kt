@@ -1,4 +1,4 @@
-package dev.draftine.annotation.processing.koin.processor.file.model.koin
+package dev.draftine.annotation.processing.koin.processor.model.koin.provider
 
 internal class KoinModuleProvider(val name: String) {
 

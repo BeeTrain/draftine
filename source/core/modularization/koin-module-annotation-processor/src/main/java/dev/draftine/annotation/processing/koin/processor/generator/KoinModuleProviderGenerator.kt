@@ -4,8 +4,8 @@ import dev.draftine.annotation.processing.koin.annotation.KoinModule
 import dev.draftine.annotation.processing.koin.processor.extension.KAPT_OPTION
 import dev.draftine.annotation.processing.koin.processor.extension.formatName
 import dev.draftine.annotation.processing.koin.processor.extension.toProviderName
-import dev.draftine.annotation.processing.koin.processor.file.model.koin.KoinModuleFile
-import dev.draftine.annotation.processing.koin.processor.file.model.koin.provider.KoinModuleProvider
+import dev.draftine.annotation.processing.koin.processor.model.koin.file.KoinModuleFile
+import dev.draftine.annotation.processing.koin.processor.model.koin.provider.KoinModuleProviderFIle
 import javax.annotation.processing.ProcessingEnvironment
 import javax.annotation.processing.RoundEnvironment
 import javax.lang.model.element.Element
@@ -30,7 +30,7 @@ internal class KoinModuleProviderGenerator(
     }
 
     private fun KoinModuleFile.generateKoinModuleProvider() {
-        val koinModuleProvider = KoinModuleProvider(
+        val koinModuleProvider = KoinModuleProviderFIle(
             processingEnvironment.options[KAPT_OPTION],
             moduleName.toProviderName(),
             this

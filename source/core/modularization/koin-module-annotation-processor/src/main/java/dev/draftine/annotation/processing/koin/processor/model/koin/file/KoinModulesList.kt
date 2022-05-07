@@ -1,4 +1,6 @@
-package dev.draftine.annotation.processing.koin.processor.file.model.koin
+package dev.draftine.annotation.processing.koin.processor.model.koin.file
+
+import dev.draftine.annotation.processing.koin.processor.model.koin.provider.KoinModuleProvider
 
 internal class KoinModulesList(private val koinModules: List<KoinModuleProvider>) {
 
