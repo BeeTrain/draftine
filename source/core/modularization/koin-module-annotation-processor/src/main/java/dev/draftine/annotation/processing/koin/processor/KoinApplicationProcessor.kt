@@ -1,7 +1,7 @@
 package dev.draftine.annotation.processing.koin.processor
 
 import com.google.auto.service.AutoService
-import dev.draftine.annotation.processing.koin.annotation.KoinApplication
+import dev.draftine.annotation.processing.koin.annotation.KoinInitializer
 import dev.draftine.annotation.processing.koin.processor.extension.KAPT_OPTION
 import dev.draftine.annotation.processing.koin.processor.generator.KoinApplicationModuleGenerator
 import javax.annotation.processing.AbstractProcessor
@@ -20,7 +20,7 @@ class KoinApplicationProcessor : AbstractProcessor() {
     }
 
     override fun getSupportedAnnotationTypes(): MutableSet<String> {
-        return mutableSetOf(KoinApplication::class.java.name)
+        return mutableSetOf(KoinInitializer::class.java.name)
     }
 
     override fun process(

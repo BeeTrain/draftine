@@ -1,12 +1,12 @@
 package dev.draftine.app
 
 import android.app.Application
-import dev.draftine.annotation.processing.koin.annotation.KoinApplication
+import dev.draftine.annotation.processing.koin.annotation.KoinInitializer
 import dev.draftine.app.di.koinModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-@KoinApplication
+@KoinInitializer
 class DraftineApp : Application() {
 
     override fun onCreate() {

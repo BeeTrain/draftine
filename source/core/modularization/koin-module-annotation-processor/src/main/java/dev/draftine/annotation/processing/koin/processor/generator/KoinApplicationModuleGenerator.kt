@@ -1,6 +1,6 @@
 package dev.draftine.annotation.processing.koin.processor.generator
 
-import dev.draftine.annotation.processing.koin.annotation.KoinApplication
+import dev.draftine.annotation.processing.koin.annotation.KoinInitializer
 import dev.draftine.annotation.processing.koin.annotation.KoinModule
 import dev.draftine.annotation.processing.koin.processor.extension.KAPT_OPTION
 import dev.draftine.annotation.processing.koin.processor.extension.KOIN_MODULES_FILE_NAME
@@ -21,7 +21,7 @@ internal class KoinApplicationModuleGenerator(
 ) {
 
     fun generate() {
-        val koinApplicationElement = roundEnvironment.getElementsAnnotatedWith(KoinApplication::class.java)
+        val koinApplicationElement = roundEnvironment.getElementsAnnotatedWith(KoinInitializer::class.java)
         val applicationModules = roundEnvironment.getApplicationModulesProviders()
         val modulesProviders = getModulesProviders()
         val koinProviders = applicationModules + modulesProviders
