@@ -29,12 +29,13 @@ object Plugins {
 
     const val navigation = "androidx.navigation.safeargs.kotlin"
     const val detekt = "io.gitlab.arturbosch.detekt"
+    const val dependenciesVersions = "com.github.ben-manes.versions"
 }
 
 object KotlinDependencies {
 
     object Versions {
-        const val coroutines = "1.6.0"
+        const val coroutines = "1.6.1"
     }
 
     const val stdLibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
@@ -58,12 +59,12 @@ object AndroidDependencies {
     object Versions {
         const val appCompat = "1.4.1"
         const val core = "1.7.0"
-        const val material = "1.5.0"
+        const val material = "1.6.0"
         const val constraintLayout = "2.1.3"
         const val lifecycle = "2.4.1"
         const val recyclerView = "1.2.1"
         const val navigation = "2.4.2"
-        const val fragment = "1.3.4"
+        const val fragment = "1.4.1"
     }
 
     const val coreKtx = "androidx.core:core-ktx:${Versions.core}"
@@ -97,7 +98,7 @@ object AndroidDependencies {
 
 object DIDependencies {
     object Versions {
-        const val koin = "3.1.5"
+        const val koin = "3.2.0"
     }
 
     const val core = "io.insert-koin:koin-core:${Versions.koin}"

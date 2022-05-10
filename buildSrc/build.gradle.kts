@@ -5,6 +5,7 @@ val kotlinVersion = "1.6.21"
 val buildGradlePluginVersion = "7.2.0"
 val navigationVersion = "2.4.2"
 val detektVersion = "1.19.0"
+val dependenciesVersion = "0.42.0"
 
 plugins {
     `kotlin-dsl`
@@ -12,8 +13,9 @@ plugins {
 }
 
 repositories {
-    mavenCentral()
     google()
+    mavenCentral()
+    gradlePluginPortal()
 }
 
 project.tasks.withType<KotlinCompile>().configureEach {
@@ -32,6 +34,7 @@ dependencies {
 
     implementation("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion")
+    implementation("com.github.ben-manes:gradle-versions-plugin:$dependenciesVersion")
 }
 
 gradlePlugin {
