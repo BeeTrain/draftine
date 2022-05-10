@@ -6,9 +6,9 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import dev.draftine.arch.extension.OnSystemInsetsChangedListener
 import dev.draftine.arch.extension.observeOnCreated
 import dev.draftine.arch.presentation.observer.LoadingObserver
+import dev.draftine.arch.presentation.view.OnSystemInsetsChangedListener
 import dev.draftine.arch.presentation.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.StateFlow
 import org.koin.androidx.scope.createScope

@@ -10,6 +10,7 @@ import internal.applicationExtension
 import internal.configureProjectModules
 import internal.getGitVersionCode
 import internal.getGitVersionName
+import internal.setupQualityCheck
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
@@ -21,6 +22,7 @@ class ApplicationModulePlugin : Plugin<Project> {
             applyPlugins()
             applyApplicationConfig()
             applyDependencies()
+            setupQualityCheck()
         }
     }
 
@@ -29,6 +31,7 @@ class ApplicationModulePlugin : Plugin<Project> {
             apply(plugin = Plugins.androidApplication)
             apply(plugin = Plugins.kotlinModule)
             apply(plugin = Plugins.kotlinKapt)
+            apply(plugin = Plugins.detekt)
         }
     }
 

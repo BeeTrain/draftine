@@ -6,9 +6,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import dev.draftine.app.R
 import dev.draftine.app.presentation.viewmodel.ApplicationViewModel
-import dev.draftine.arch.extension.OnSystemInsetsChangedListener
 import dev.draftine.arch.presentation.activity.BaseActivity
 import dev.draftine.arch.presentation.navigation.BottomNavBarHost
+import dev.draftine.arch.presentation.view.OnSystemInsetsChangedListener
 import dev.draftine.navigation.navigator.AppNavigator
 import dev.draftine.navigation.presentation.BottomNavBarVisibilityManager
 import dev.draftine.ui.container.ConstraintContainer

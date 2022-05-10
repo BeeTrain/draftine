@@ -9,13 +9,13 @@ import DIDependencies.koin
 import LintDependencies.lintChecks
 import MiscDependencies.lottie
 import Plugins
-import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 
-class FeatureModulePlugin : Plugin<Project> {
+class FeatureModulePlugin : AndroidModulePlugin() {
 
     override fun apply(project: Project) {
+        super.apply(project)
         project.run {
             applyPlugins()
             applyDependencies()
@@ -24,7 +24,6 @@ class FeatureModulePlugin : Plugin<Project> {
 
     private fun Project.applyPlugins() {
         plugins.run {
-            apply(plugin = Plugins.androidModule)
             apply(plugin = Plugins.kotlinKapt)
         }
     }

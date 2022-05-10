@@ -3,8 +3,8 @@ package dev.draftine.arch.presentation.activity
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import dev.draftine.arch.extension.OnSystemInsetsChangedListener
 import dev.draftine.arch.extension.setupWindowInsets
+import dev.draftine.arch.presentation.view.OnSystemInsetsChangedListener
 import dev.draftine.arch.presentation.viewmodel.BaseViewModel
 import org.koin.androidx.scope.createScope
 import org.koin.core.component.KoinScopeComponent

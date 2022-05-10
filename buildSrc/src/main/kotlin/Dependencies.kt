@@ -28,6 +28,7 @@ object Plugins {
     const val javaLibrary = "java-library"
 
     const val navigation = "androidx.navigation.safeargs.kotlin"
+    const val detekt = "io.gitlab.arturbosch.detekt"
 }
 
 object KotlinDependencies {

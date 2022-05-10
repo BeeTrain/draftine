@@ -2,8 +2,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val javaVersion = JavaVersion.VERSION_11
 val kotlinVersion = "1.6.21"
-val buildGradlePluginVersion = "7.1.3"
+val buildGradlePluginVersion = "7.2.0"
 val navigationVersion = "2.4.2"
+val detektVersion = "1.19.0"
 
 plugins {
     `kotlin-dsl`
@@ -30,6 +31,7 @@ dependencies {
     implementation("com.android.tools.build:gradle:$buildGradlePluginVersion")
 
     implementation("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
+    implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion")
 }
 
 gradlePlugin {
