@@ -1,7 +1,7 @@
 /* Project Settings */
 
 rootProject.name = "draftine"
-val modulesConfiguratorPath = "/gradle/scripts/modules-configurator.gradle.kts"
+val modulesConfiguratorPath = "$rootDir/gradle/scripts/modules-configurator.gradle.kts"
 
 // Attach modules
 apply(from = File(modulesConfiguratorPath))
