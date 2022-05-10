@@ -1,0 +1,19 @@
+name: Quality-check
+
+on: [push]
+
+jobs:
+    checkstyle:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: set up JDK
+              uses: actions/setup-java@v1
+              with:
+                  java-version: 11
+
+            - name: Chmod permissions
+              run: sudo chmod +x ./gradlew
+
+            - name: QualityCheck
+              run: ./gradlew qualityCheck
