@@ -4,9 +4,7 @@ import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
 import io.gitlab.arturbosch.detekt.Detekt
-import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.project
 import org.gradle.kotlin.dsl.withType
 
@@ -36,10 +34,9 @@ internal fun Project.configureProjectModules() {
 }
 
 internal fun Project.setupQualityCheck() = apply {
-    configure<DetektExtension> {
-        config = files("$rootDir/config/quality/detekt-config.yml")
-    }
     tasks.withType<Detekt>().configureEach {
+        config.setFrom("$rootDir/config/quality/detekt-config.yml")
+
         reports {
             html.required.set(true)
             txt.required.set(true)
