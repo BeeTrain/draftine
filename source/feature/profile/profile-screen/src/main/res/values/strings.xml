@@ -2,5 +2,6 @@
 <resources>
 
     <string name="profile_screen_title">Profile</string>
+    <string name="profile_screen_settings_menu_title">Settings</string>
 
 </resources>

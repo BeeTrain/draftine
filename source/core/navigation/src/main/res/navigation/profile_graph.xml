@@ -7,9 +7,19 @@
     app:startDestination="@id/profile">
 
     <fragment
-            android:id="@+id/profile"
-            android:name="dev.draftine.profile.presentation.view.ProfileFragment"
-            android:label="@string/profile_screen_title"
-            tools:layout="@layout/profile_fragment">
+        android:id="@+id/profile"
+        android:label="@string/profile_screen_title"
+        android:name="dev.draftine.profile.presentation.view.ProfileFragment"
+        tools:layout="@layout/profile_fragment">
+
+        <action
+            android:id="@+id/openSettings"
+            app:destination="@id/settings" />
     </fragment>
+
+    <fragment
+        android:id="@+id/settings"
+        android:label="@string/settings_screen_title"
+        android:name="dev.draftine.settings.presentation.view.SettingsFragment"
+        tools:layout="@layout/settings_fragment" />
 </navigation>

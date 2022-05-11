@@ -11,6 +11,10 @@ val profileModule = module {
 
     scope<ProfileFragment> {
 
-        viewModel { ProfileViewModel() }
+        viewModel {
+            ProfileViewModel(
+                profileNavigator = get()
+            )
+        }
     }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dev.draftine.ui.container.ConstraintContainer
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <dev.draftine.ui.appbar.Toolbar
+        android:id="@+id/settings_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:separatorEnabled="true"
+        app:title="@string/settings_screen_title" />
+
+    <dev.draftine.ui.image.ImageView
+        android:id="@+id/settings_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/settings_screen_close_icon_title"
+        android:padding="@dimen/keyline_4"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="@id/settings_toolbar"
+        app:layout_constraintEnd_toEndOf="@id/settings_toolbar"
+        app:layout_constraintTop_toTopOf="@id/settings_toolbar"
+        app:tint="?colorOnSurface" />
+
+</dev.draftine.ui.container.ConstraintContainer>
