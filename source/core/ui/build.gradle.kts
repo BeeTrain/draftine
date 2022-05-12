@@ -7,6 +7,8 @@ plugins {
 }
 
 dependencies {
+    implementation(projects.icons)
+
     ui()
     lottie()
     navigation()

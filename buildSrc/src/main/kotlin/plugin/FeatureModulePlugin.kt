@@ -5,6 +5,7 @@ import AndroidDependencies.ui
 import CoreModules.archModule
 import CoreModules.iconsModule
 import CoreModules.uiModule
+import CoreModules.utilsModule
 import DIDependencies.koin
 import LintDependencies.lintChecks
 import MiscDependencies.lottie
@@ -39,6 +40,7 @@ class FeatureModulePlugin : AndroidModulePlugin() {
             archModule()
             uiModule()
             iconsModule()
+            utilsModule()
         }
     }
 }

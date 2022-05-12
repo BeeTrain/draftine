@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="brand_primary">#000f58</color>
-    <color name="brand_secondary">#dff4f4</color>
+    <color name="brand_primary">#dff4f4</color>
+    <color name="brand_primary_light">#ffffff</color>
+    <color name="brand_primary_dark">#adc1c1</color>
+    <color name="brand_secondary">#000f58</color>
+    <color name="brand_secondary_light">#3d3586</color>
+    <color name="brand_secondary_dark">#00002f</color>
 
 </resources>

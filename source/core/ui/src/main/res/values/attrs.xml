@@ -49,4 +49,12 @@
     <declare-styleable name="Toolbar">
         <attr format="boolean" name="separatorEnabled" />
     </declare-styleable>
+
+    <declare-styleable name="ToggleListItem">
+        <attr name="title" />
+        <attr name="label" />
+        <attr name="caption" />
+        <attr name="icon" />
+        <attr name="isChecked" />
+    </declare-styleable>
 </resources>

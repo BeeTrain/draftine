@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.draftine.ui.R
 import dev.draftine.ui.extension.getAttrColor
+import dev.draftine.ui.extension.getColorExt
 
 class BottomNavBar
 @JvmOverloads constructor(
@@ -19,20 +20,15 @@ class BottomNavBar
 
     private fun applyAppTheme() {
         val surfaceColor = context.getAttrColor(R.attr.colorSurface)
-        val onSurfaceColor = context.getAttrColor(R.attr.colorOnSurface)
-        val highlightColor = context.getAttrColor(R.attr.colorPrimary)
+        val unselectedColor = context.getColorExt(R.color.grey_700)
+        val selectedColor = context.getAttrColor(R.attr.colorSecondary)
         val itemColorList = ColorStateList(
-            arrayOf(
-                intArrayOf(-android.R.attr.state_checked),
-                intArrayOf(android.R.attr.state_checked)
-            ),
-            intArrayOf(
-                onSurfaceColor,
-                highlightColor
-            )
+            arrayOf(intArrayOf(-android.R.attr.state_checked), intArrayOf(android.R.attr.state_checked)),
+            intArrayOf(unselectedColor, selectedColor)
         )
 
         setBackgroundColor(surfaceColor)
         itemTextColor = itemColorList
+        itemIconTintList = itemColorList
     }
 }

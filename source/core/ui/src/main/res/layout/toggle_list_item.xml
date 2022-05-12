@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dev.draftine.ui.card.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toggle_list_item_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="0dp">
+
+    <dev.draftine.ui.container.ConstraintContainer
+        android:id="@+id/toggle_list_item_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/keyline_4"
+        android:paddingTop="@dimen/keyline_2"
+        android:paddingEnd="@dimen/keyline_4"
+        android:paddingBottom="@dimen/keyline_2">
+
+        <dev.draftine.ui.image.ImageView
+            android:id="@+id/toggle_list_item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:adjustViewBounds="true"
+            android:maxWidth="40dp"
+            android:maxHeight="40dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/toggle_list_item_icon_barrier"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toggle_list_item_title"
+            tools:src="@drawable/ic_home"
+            tools:visibility="visible" />
+
+        <dev.draftine.ui.container.constraint.Barrier
+            android:id="@+id/toggle_list_item_icon_barrier"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="toggle_list_item_title, toggle_list_item_label, toggle_list_item_caption"
+            app:layout_constraintStart_toEndOf="@id/toggle_list_item_icon" />
+
+        <dev.draftine.ui.text.TextView
+            android:id="@+id/toggle_list_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="?attr/colorOnBackground"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/toggle_list_item_title_barrier"
+            app:layout_constraintEnd_toStartOf="@+id/toggle_list_item_switch"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/toggle_list_item_icon_barrier"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <dev.draftine.ui.text.TextView
+            android:id="@+id/toggle_list_item_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="?attr/colorOnBackground"
+            app:layout_constraintBottom_toTopOf="@+id/toggle_list_item_caption"
+            app:layout_constraintEnd_toStartOf="@+id/toggle_list_item_switch"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/toggle_list_item_icon_barrier"
+            app:layout_constraintTop_toBottomOf="@+id/toggle_list_item_title"
+            tools:text="Enable dark theme" />
+
+        <dev.draftine.ui.text.TextView
+            android:id="@+id/toggle_list_item_caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?attr/colorHint"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/toggle_list_item_switch"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/toggle_list_item_icon_barrier"
+            app:layout_constraintTop_toBottomOf="@+id/toggle_list_item_label"
+            tools:text="Enables and applies dark theme instantly"
+            tools:visibility="visible" />
+
+        <dev.draftine.ui.button.SwitchButton
+            android:id="@+id/toggle_list_item_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/toggle_list_item_caption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toggle_list_item_title_barrier" />
+
+    </dev.draftine.ui.container.ConstraintContainer>
+
+</dev.draftine.ui.card.CardView>

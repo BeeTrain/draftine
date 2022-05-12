@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ApplicationTheme" parent="Base.V26.Theme">
-        <item name="colorPrimary">@color/brand_primary</item>
-        <item name="colorSecondary">@color/brand_secondary</item>
-        <item name="colorSurface">?colorSecondary</item>
-    </style>
+    <style name="ApplicationTheme" parent="Base.Theme" />
 
 </resources>

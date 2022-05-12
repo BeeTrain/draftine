@@ -174,6 +174,10 @@ internal object CoreModules {
         implementation(project(":icons"))
     }
 
+    fun DependencyHandler.utilsModule() = apply {
+        implementation(project(":utils"))
+    }
+
     fun DependencyHandler.koinModules() = apply {
         implementation(project(":koin-module-annotation"))
         kapt(project(":koin-module-annotation-processor"))
