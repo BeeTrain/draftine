@@ -3,5 +3,5 @@
 
     <string name="settings_screen_title">Settings</string>
     <string name="settings_screen_close_icon_title">Close</string>
-    <string name="settings_screen_app_theme_item_title">App Theme</string>
+    <string name="settings_screen_app_theme_item_title">Enable dark theme</string>
 </resources>
