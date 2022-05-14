@@ -16,11 +16,21 @@ import androidx.annotation.StringRes
 import androidx.annotation.XmlRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import dev.draftine.utils.lifecycle.ActivityContextProvider
 import org.xmlpull.v1.XmlPullParser
 
 private const val RESOURCE_TYPE_DRAWABLE = "drawable"
 
-class ResourcesProvider(private val context: Context) {
+class ResourcesProvider(
+    private val activityContextProvider: ActivityContextProvider
+) {
+
+    private val context: Context
+        get() = provideActivityContext()
+
+    private fun provideActivityContext(): Context {
+        return requireNotNull(activityContextProvider.activityContext)
+    }
 
     fun getString(@StringRes resId: Int): String {
         return context.getString(resId)

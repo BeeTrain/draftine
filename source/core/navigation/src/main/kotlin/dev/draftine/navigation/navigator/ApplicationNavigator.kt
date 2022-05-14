@@ -9,6 +9,7 @@ import dev.draftine.navigation.R
 import dev.draftine.profile.presentation.navigation.ProfileNavigator
 import dev.draftine.profile.presentation.view.ProfileFragmentDirections
 import dev.draftine.settings.presentation.navigation.SettingsNavigator
+import dev.draftine.settings.presentation.view.SettingsFragmentDirections
 import dev.draftine.splash.presentation.navigation.SplashNavigator
 import dev.draftine.splash.presentation.view.SplashFragmentDirections
 import dev.draftine.ui.extension.setFadeAnim
@@ -52,6 +53,16 @@ class ApplicationNavigator :
 
     override fun closeSettings() {
         appNavController?.popBackStack()
+    }
+
+    override fun openAboutApp() {
+        appNavController?.navigate(
+            action = SettingsFragmentDirections.openAboutApp(),
+            navOptions = NavOptions.Builder()
+                .setHorizontalFullInAnim()
+                .setPopUpTo(R.id.profile, false)
+                .build()
+        )
     }
 
     private fun NavController.navigate(

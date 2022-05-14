@@ -21,5 +21,17 @@
         android:id="@+id/settings"
         android:label="@string/settings_screen_title"
         android:name="dev.draftine.settings.presentation.view.SettingsFragment"
-        tools:layout="@layout/settings_fragment" />
+        tools:layout="@layout/settings_fragment">
+
+        <action
+            android:id="@+id/openAboutApp"
+            app:destination="@id/about_app"
+            app:popUpTo="@id/profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/about_app"
+        android:label="@string/about_app_screen_title"
+        android:name="dev.draftine.about.presentation.view.AboutAppFragment"
+        tools:layout="@layout/about_app_fragment" />
 </navigation>

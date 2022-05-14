@@ -26,8 +26,12 @@ class AppSettingsRepository(
     }
 
     private fun prepareSettings(): List<Setting> {
+        val theme = getAppTheme()
+        val aboutApp = Setting.AboutApp
+
         return listOf(
-            getAppTheme()
+            theme,
+            aboutApp
         )
     }
 

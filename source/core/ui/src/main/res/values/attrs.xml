@@ -57,4 +57,21 @@
         <attr name="icon" />
         <attr name="isChecked" />
     </declare-styleable>
+
+    <declare-styleable name="MenuListItem">
+        <attr name="title" />
+        <attr name="label" />
+        <attr name="caption" />
+        <attr name="icon" />
+        <attr name="menu" />
+    </declare-styleable>
+
+    <declare-styleable name="DataListItem">
+        <attr name="title" />
+        <attr name="label" />
+        <attr name="caption" />
+        <attr format="reference" name="startIcon" />
+        <attr format="reference" name="endIcon" />
+    </declare-styleable>
+
 </resources>

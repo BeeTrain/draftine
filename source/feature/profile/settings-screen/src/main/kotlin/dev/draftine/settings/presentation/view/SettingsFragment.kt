@@ -6,7 +6,9 @@ import androidx.lifecycle.lifecycleScope
 import dev.draftine.arch.extension.observeOnCreated
 import dev.draftine.arch.presentation.fragment.BaseFragment
 import dev.draftine.settings.R
+import dev.draftine.settings.presentation.model.SettingsListItem
 import dev.draftine.settings.presentation.model.SettingsToggleItem
+import dev.draftine.settings.presentation.view.adapter.SettingsListRecyclerItem
 import dev.draftine.settings.presentation.view.adapter.SettingsToggleRecyclerItem
 import dev.draftine.settings.presentation.viewmodel.SettingsViewModel
 import dev.draftine.ui.extension.findView
@@ -29,11 +31,16 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.settings_fragm
 
     private var onToggleSettingClick: ((SettingsToggleItem, Boolean) -> Unit)? = null
 
+    private var onSettingListItemClick: ((SettingsListItem) -> Unit)? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         onToggleSettingClick = { item, isChecked ->
             viewModel.onSettingToggled(item, isChecked)
+        }
+        onSettingListItemClick = { item ->
+            viewModel.onSettingClicked(item)
         }
         viewModel.settingsState.observeOnCreated(lifecycleScope) {
             settingsAdapter.submitList(it)
@@ -51,7 +58,10 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.settings_fragm
     private fun createSettingsAdapter(): RecyclerAdapter {
         return RecyclerAdapter.create(
             settingsList,
-            listOf(SettingsToggleRecyclerItem(onToggleSettingClick))
+            listOf(
+                SettingsToggleRecyclerItem(onToggleSettingClick),
+                SettingsListRecyclerItem(onSettingListItemClick)
+            )
         )
     }
 }

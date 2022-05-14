@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="about_app_screen_title">About App</string>
+    <string name="about_app_application_version_title">Application version</string>
+    <string name="about_app_device_name_title">Device name</string>
+    <string name="about_app_system_version_title">System version</string>
+    <string name="about_app_sdk_version_title">Sdk version</string>
+</resources>
