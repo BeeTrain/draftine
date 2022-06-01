@@ -1,6 +1,5 @@
 package dev.draftine.rates.presentation.view.adapter
 
-import android.util.Log
 import dev.draftine.rates.R
 import dev.draftine.rates.presentation.model.ExchangeRateCardModel
 import dev.draftine.ui.card.ExchangeRateCard
@@ -17,6 +16,7 @@ class ExchangeRateRecyclerItem : RecyclerItem<ExchangeRateCard, ExchangeRateCard
         view.apply {
             currencyIcon = item.currencyIcon
             title = item.currencyTitle
+            date = item.exchangeRateDate
             value = item.exchangeRateValue
         }
     }

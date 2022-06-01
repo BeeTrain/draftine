@@ -24,6 +24,7 @@ class ExchangeRateCard
     private val exchangeRateCardCard by bind<CardView>(R.id.exchange_rate_card)
     private val exchangeRateCardRoot by bind<ConstraintContainer>(R.id.exchange_rate_card_root)
     private val exchangeRateCardTitle by bind<TextView>(R.id.exchange_rate_card_title)
+    private val exchangeRateCardDate by bind<TextView>(R.id.exchange_rate_card_date)
     private val exchangeRateCardValue by bind<TextView>(R.id.exchange_rate_card_value)
     private val exchangeRateCardLink by bind<ImageView>(R.id.exchange_rate_card_link)
     private val exchangeRateCardIcon by bind<ImageView>(R.id.exchange_rate_card_icon)
@@ -34,12 +35,21 @@ class ExchangeRateCard
             exchangeRateCardIcon.loadImage(value)
             exchangeRateCardIcon.isVisible = value != null
         }
+
     var title: String? = null
         set(value) {
             field = value
             val isVisible = !value.isNullOrEmpty()
             exchangeRateCardTitle.text = value.orEmpty()
             exchangeRateCardTitle.isVisible = isVisible
+        }
+
+    var date: String? = null
+        set(value) {
+            field = value
+            val isVisible = !value.isNullOrEmpty()
+            exchangeRateCardDate.text = value.orEmpty()
+            exchangeRateCardDate.isVisible = isVisible
         }
 
     var value: String? = null

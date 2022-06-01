@@ -173,9 +173,11 @@ object MiscDependencies {
     object Versions {
         const val lottie = "5.1.1"
         const val coil = "2.1.0"
+        const val joda = "2.10.14"
     }
 
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+    const val joda = "joda-time:joda-time:${Versions.joda}"
 
     object Coil {
         const val coil = "io.coil-kt:coil:${Versions.coil}"
@@ -193,6 +195,10 @@ object MiscDependencies {
         implementation(Coil.coilGif)
         implementation(Coil.coilSvg)
         implementation(Coil.coilVideo)
+    }
+
+    fun DependencyHandler.applyJodaTime() = apply {
+        implementation(joda)
     }
 }
 

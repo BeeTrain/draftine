@@ -12,6 +12,7 @@ import dev.draftine.utils.resources.ResourcesProvider
 import java.math.BigDecimal
 
 private const val ICON_SHAPE_CORNER_RADIUS = 24F
+private const val DATE_PATTERN = "HH:mm, d MMMM"
 
 class ExchangeRateMapper(
     private val resourcesProvider: ResourcesProvider
@@ -21,7 +22,8 @@ class ExchangeRateMapper(
         return ExchangeRateCardModel(
             currencyIcon = getCurrencyIcon(exchangeRate.currency),
             currencyTitle = getCurrencyTitle(exchangeRate),
-            exchangeRateValue = getExchangeRateValue(exchangeRate)
+            exchangeRateValue = getExchangeRateValue(exchangeRate),
+            exchangeRateDate = exchangeRate.date.toString(DATE_PATTERN)
         )
     }
 

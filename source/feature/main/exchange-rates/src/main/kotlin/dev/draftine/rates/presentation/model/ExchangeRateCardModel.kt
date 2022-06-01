@@ -6,5 +6,6 @@ import dev.draftine.ui.recycler.Item
 data class ExchangeRateCardModel(
     val currencyIcon: Image,
     val currencyTitle: String,
-    val exchangeRateValue: String
+    val exchangeRateValue: String,
+    val exchangeRateDate: String
 ) : Item()

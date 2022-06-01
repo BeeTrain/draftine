@@ -14,9 +14,7 @@ internal class ExchangeRateUsdRepository(
     suspend fun getUsdRubRate(): ExchangeRate {
         return rssLoader.loadRss(USD_RUB_EXCHANGE_RATE_URL)
             .items
-            .firstOrNull()
-            ?.description
-            .orEmpty()
-            .let { mapper.map(it) }
+            .first()
+            .run { mapper.map(this) }
     }
 }

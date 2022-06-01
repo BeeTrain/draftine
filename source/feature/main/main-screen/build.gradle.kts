@@ -1,3 +1,5 @@
+import MiscDependencies.applyJodaTime
+
 plugins {
     id(Plugins.featureModule)
 }
@@ -5,4 +7,6 @@ plugins {
 dependencies {
     implementation(projects.exchangeRates)
     implementation(projects.utils)
+
+    applyJodaTime()
 }

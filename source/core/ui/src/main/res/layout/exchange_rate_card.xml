@@ -40,11 +40,35 @@
             android:lines="1"
             android:paddingHorizontal="@dimen/keyline_3"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@id/exchange_rate_card_value"
-            app:layout_constraintStart_toEndOf="@id/exchange_rate_card_icon"
-            app:layout_constraintTop_toTopOf="@id/exchange_rate_card_icon"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/exchange_rate_card_date"
+            app:layout_constraintEnd_toStartOf="@+id/exchange_rate_card_value"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/exchange_rate_card_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             app:textType="Headline5"
-            tools:text="USD" />
+            tools:text="USD"
+            tools:visibility="visible" />
+
+        <dev.draftine.ui.text.TextView
+            android:id="@+id/exchange_rate_card_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingHorizontal="@dimen/keyline_3"
+            android:visibility="gone"
+            android:textColor="@color/grey_600"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/exchange_rate_card_title"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/exchange_rate_card_title"
+            app:layout_constraintTop_toBottomOf="@id/exchange_rate_card_title"
+            app:textType="Subtitle2"
+            tools:text="01.01.1970"
+            tools:visibility="visible" />
 
         <dev.draftine.ui.text.TextView
             android:id="@+id/exchange_rate_card_value"
@@ -55,29 +79,33 @@
             android:lines="1"
             android:paddingBottom="@dimen/keyline_1"
             android:textColor="@color/black"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/exchange_rate_card_title"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/exchange_rate_card_title"
             app:layout_constraintTop_toTopOf="@id/exchange_rate_card_title"
-            app:layout_constraintVertical_bias="1"
+            app:layout_constraintVertical_bias="0.5"
             app:textType="Subtitle1"
-            tools:text="100$" />
+            tools:text="100$"
+            tools:visibility="visible" />
 
         <dev.draftine.ui.image.ImageView
             android:id="@+id/exchange_rate_card_link"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_marginBottom="@dimen/keyline_2"
             android:layout_marginEnd="@dimen/keyline_2"
             android:background="?selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
             android:padding="@dimen/keyline_2"
-            android:visibility="gone"
             android:src="@drawable/ic_open"
-            android:layout_marginBottom="@dimen/keyline_2"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/exchange_rate_card_value"
-            app:tint="@color/black" />
+            app:tint="@color/black"
+            tools:visibility="visible" />
 
     </dev.draftine.ui.container.ConstraintContainer>
 
