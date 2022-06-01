@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dev.draftine.ui.card.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/exchange_rate_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/exchange_rate_card_background"
+    app:cardCornerRadius="@dimen/keyline_4"
+    app:cardElevation="0dp">
+
+    <dev.draftine.ui.container.ConstraintContainer
+        android:id="@+id/exchange_rate_card_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent">
+
+        <dev.draftine.ui.image.ImageView
+            android:id="@+id/exchange_rate_card_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="@dimen/keyline_3"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:maxHeight="40dp"
+            android:maxWidth="40dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/menu_list_item_icon_barrier"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/flag_united_states"
+            tools:visibility="visible" />
+
+        <dev.draftine.ui.text.TextView
+            android:id="@+id/exchange_rate_card_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingHorizontal="@dimen/keyline_3"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/exchange_rate_card_value"
+            app:layout_constraintStart_toEndOf="@id/exchange_rate_card_icon"
+            app:layout_constraintTop_toTopOf="@id/exchange_rate_card_icon"
+            app:textType="Headline5"
+            tools:text="USD" />
+
+        <dev.draftine.ui.text.TextView
+            android:id="@+id/exchange_rate_card_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingBottom="@dimen/keyline_1"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/exchange_rate_card_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/exchange_rate_card_title"
+            app:layout_constraintVertical_bias="1"
+            app:textType="Subtitle1"
+            tools:text="100$" />
+
+        <dev.draftine.ui.image.ImageView
+            android:id="@+id/exchange_rate_card_link"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="@dimen/keyline_2"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/keyline_2"
+            android:visibility="gone"
+            android:src="@drawable/ic_open"
+            android:layout_marginBottom="@dimen/keyline_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/exchange_rate_card_value"
+            app:tint="@color/black" />
+
+    </dev.draftine.ui.container.ConstraintContainer>
+
+</dev.draftine.ui.card.CardView>

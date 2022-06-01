@@ -9,6 +9,9 @@ import android.view.animation.AnimationUtils
 import androidx.annotation.AnimRes
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.FontRes
 import androidx.annotation.Px
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -50,6 +53,12 @@ private fun View.requestApplyInsetsWhenAttached() {
 fun View.getAttrColor(@AttrRes attr: Int) = context.getAttrColor(attr)
 
 fun View.getAttrResId(@AttrRes attr: Int) = context.getAttrResId(attr)
+
+fun View.getFontExt(@FontRes id: Int) = context.getFontExt(id)
+
+fun View.getDrawableExt(@DrawableRes id: Int) = context.getDrawableExt(id)
+
+fun View.getColorExt(@ColorRes id: Int) = context.getColorExt(id)
 
 fun View.startAnimation(@AnimRes anim: Int) = startAnimation(AnimationUtils.loadAnimation(context, anim))
 

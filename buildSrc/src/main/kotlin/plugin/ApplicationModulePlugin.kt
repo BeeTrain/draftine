@@ -5,6 +5,7 @@ import AndroidDependencies.ui
 import AppConfig
 import DIDependencies.koin
 import LintDependencies.lintChecks
+import NetworkDependencies.network
 import Plugins
 import internal.applicationExtension
 import internal.configureProjectModules
@@ -64,6 +65,7 @@ class ApplicationModulePlugin : Plugin<Project> {
 
             ui()
             koin()
+            network()
             navigation()
         }
     }

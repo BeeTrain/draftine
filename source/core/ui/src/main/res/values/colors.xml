@@ -8,4 +8,5 @@
     <color name="brand_secondary_light">#3d3586</color>
     <color name="brand_secondary_dark">#00002f</color>
 
+    <color name="exchange_rate_card_background">@color/grey_200</color>
 </resources>

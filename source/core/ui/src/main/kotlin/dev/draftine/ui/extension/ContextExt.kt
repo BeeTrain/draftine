@@ -25,7 +25,7 @@ fun Context.getAttrResId(@AttrRes attr: Int): Int {
     return typedValue.resourceId
 }
 
-fun Context.getFont(@FontRes id: Int): Typeface? {
+fun Context.getFontExt(@FontRes id: Int): Typeface? {
     return ResourcesCompat.getFont(this, id)
 }
 
