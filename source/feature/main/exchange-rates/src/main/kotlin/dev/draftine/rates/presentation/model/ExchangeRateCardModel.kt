@@ -7,5 +7,6 @@ data class ExchangeRateCardModel(
     val currencyIcon: Image,
     val currencyTitle: String,
     val exchangeRateValue: String,
-    val exchangeRateDate: String
+    val exchangeRateDate: String,
+    val link: String?
 ) : Item()

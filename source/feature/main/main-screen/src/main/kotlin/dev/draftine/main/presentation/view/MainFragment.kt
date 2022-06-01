@@ -8,8 +8,8 @@ import dev.draftine.arch.presentation.fragment.BaseFragment
 import dev.draftine.arch.presentation.fragment.BottomNavigationFragment
 import dev.draftine.main.R
 import dev.draftine.main.presentation.model.MainViewState
-import dev.draftine.rates.presentation.view.adapter.ExchangeRateRecyclerItem
 import dev.draftine.main.presentation.viewmodel.MainViewModel
+import dev.draftine.rates.presentation.view.adapter.ExchangeRateRecyclerItem
 import dev.draftine.ui.appbar.Toolbar
 import dev.draftine.ui.extension.findView
 import dev.draftine.ui.extension.unsafeLazy
@@ -28,12 +28,21 @@ class MainFragment :
     private val mainList: RecyclerView by findView(R.id.main_list)
     private val mainAdapter by unsafeLazy { createMainAdapter() }
 
+    private var onExchangeRateLinkClick: ((String) -> Unit)? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        onExchangeRateLinkClick = { viewModel.openExchangeRateUrl(it) }
 
         viewModel.contentState.observeOnCreated(lifecycleScope) {
             renderState(it)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadData()
     }
 
     override fun onApplySystemInsets(insetTop: Int, insetBottom: Int) {
@@ -55,7 +64,7 @@ class MainFragment :
         return RecyclerAdapter.create(
             mainList,
             listOf(
-                ExchangeRateRecyclerItem()
+                ExchangeRateRecyclerItem(onExchangeRateLinkClick)
             )
         )
     }

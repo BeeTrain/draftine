@@ -26,7 +26,7 @@ class ExchangeRateCard
     private val exchangeRateCardTitle by bind<TextView>(R.id.exchange_rate_card_title)
     private val exchangeRateCardDate by bind<TextView>(R.id.exchange_rate_card_date)
     private val exchangeRateCardValue by bind<TextView>(R.id.exchange_rate_card_value)
-    private val exchangeRateCardLink by bind<ImageView>(R.id.exchange_rate_card_link)
+    private val exchangeRateCardLink by bind<TextView>(R.id.exchange_rate_card_link)
     private val exchangeRateCardIcon by bind<ImageView>(R.id.exchange_rate_card_icon)
 
     var currencyIcon: Image? = null

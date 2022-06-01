@@ -3,4 +3,6 @@
 
     <string name="app_name">draftine</string>
 
+    <string name="exchange_rate_link_title"><u>source</u></string>
+
 </resources>

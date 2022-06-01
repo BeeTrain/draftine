@@ -10,6 +10,7 @@ class ActivityContextProvider(application: Application) {
     private val lifecycleCallback by lazy(LazyThreadSafetyMode.NONE) { createLifecycleCallback() }
 
     var activityContext: Context? = null
+        private set
 
     init {
         application.registerActivityLifecycleCallbacks(lifecycleCallback)

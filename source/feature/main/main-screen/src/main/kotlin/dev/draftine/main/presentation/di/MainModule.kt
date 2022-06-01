@@ -15,7 +15,8 @@ val mainModule = module {
         viewModel {
             MainViewModel(
                 exchangeRateInteractor = get(),
-                exchangeRateMapper = get()
+                exchangeRateMapper = get(),
+                mainNavigator = get()
             )
         }
         factory { ExchangeRateMapper(get()) }

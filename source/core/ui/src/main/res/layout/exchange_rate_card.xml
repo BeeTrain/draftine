@@ -59,8 +59,8 @@
             android:ellipsize="end"
             android:lines="1"
             android:paddingHorizontal="@dimen/keyline_3"
-            android:visibility="gone"
             android:textColor="@color/grey_600"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/exchange_rate_card_title"
             app:layout_constraintHorizontal_bias="0"
@@ -89,21 +89,23 @@
             tools:text="100$"
             tools:visibility="visible" />
 
-        <dev.draftine.ui.image.ImageView
+        <dev.draftine.ui.text.TextView
             android:id="@+id/exchange_rate_card_link"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/keyline_2"
             android:layout_marginEnd="@dimen/keyline_2"
             android:background="?selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
             android:padding="@dimen/keyline_2"
-            android:src="@drawable/ic_open"
+            android:text="@string/exchange_rate_link_title"
+            android:textColor="?colorLink"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/exchange_rate_card_value"
+            app:textType="None"
             app:tint="@color/black"
             tools:visibility="visible" />
 

@@ -5,6 +5,9 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.FragmentNavigator
+import dev.draftine.browser.navigation.BrowserNavigator
+import dev.draftine.browser.presentation.BrowserLauncher
+import dev.draftine.main.presentation.navigation.MainNavigator
 import dev.draftine.navigation.R
 import dev.draftine.profile.presentation.navigation.ProfileNavigator
 import dev.draftine.profile.presentation.view.ProfileFragmentDirections
@@ -16,11 +19,14 @@ import dev.draftine.ui.extension.setFadeAnim
 import dev.draftine.ui.extension.setHorizontalFullInAnim
 import dev.draftine.ui.extension.setModalFullAnim
 
-class ApplicationNavigator :
-    AppNavigator,
+class ApplicationNavigator(
+    private val browserLauncher: BrowserLauncher
+) : AppNavigator,
     SplashNavigator,
     ProfileNavigator,
-    SettingsNavigator {
+    SettingsNavigator,
+    BrowserNavigator,
+    MainNavigator {
 
     private var appNavController: NavController? = null
 
@@ -63,6 +69,14 @@ class ApplicationNavigator :
                 .setPopUpTo(R.id.profile, false)
                 .build()
         )
+    }
+
+    override fun openExchangeRateUrl(url: String) {
+        openUrl(url)
+    }
+
+    override fun openUrl(url: String) {
+        browserLauncher.launchUrl(url)
     }
 
     private fun NavController.navigate(

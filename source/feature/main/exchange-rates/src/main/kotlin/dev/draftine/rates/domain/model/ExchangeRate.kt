@@ -9,5 +9,6 @@ data class ExchangeRate(
     val rate: BigDecimal,
     val exchangeCurrency: Currency,
     val exchangeRate: BigDecimal,
-    val date: LocalDateTime
+    val date: LocalDateTime,
+    val link: String?
 )

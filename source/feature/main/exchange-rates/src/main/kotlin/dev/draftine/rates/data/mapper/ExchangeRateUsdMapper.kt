@@ -22,6 +22,7 @@ internal class ExchangeRateUsdMapper {
             .split(CURRENCIES_SEPARATOR)
 
         val date = LocalDateTime.now()
+        val link = response.link
 
         val currencyValues = exchange.first().split(SPACE)
         val currencyRate = BigDecimal(currencyValues.first())
@@ -36,7 +37,8 @@ internal class ExchangeRateUsdMapper {
             currencyRate,
             exchangeCurrency,
             exchangeRate,
-            date
+            date,
+            link
         )
     }
 }

@@ -65,6 +65,7 @@ object AndroidDependencies {
         const val recyclerView = "1.2.1"
         const val navigation = "2.4.2"
         const val fragment = "1.4.1"
+        const val browser = "1.3.0"
     }
 
     const val coreKtx = "androidx.core:core-ktx:${Versions.core}"
@@ -73,6 +74,7 @@ object AndroidDependencies {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
     const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val browser = "androidx.browser:browser:${Versions.browser}"
 
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
 
@@ -93,6 +95,10 @@ object AndroidDependencies {
         implementation(navigationFragment)
         implementation(navigationRuntime)
         implementation(navigationUi)
+    }
+
+    fun DependencyHandler.applyBrowser() = apply {
+        implementation(browser)
     }
 }
 

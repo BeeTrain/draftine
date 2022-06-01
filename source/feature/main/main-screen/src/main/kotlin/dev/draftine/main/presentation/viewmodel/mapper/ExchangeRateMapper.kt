@@ -23,7 +23,8 @@ class ExchangeRateMapper(
             currencyIcon = getCurrencyIcon(exchangeRate.currency),
             currencyTitle = getCurrencyTitle(exchangeRate),
             exchangeRateValue = getExchangeRateValue(exchangeRate),
-            exchangeRateDate = exchangeRate.date.toString(DATE_PATTERN)
+            exchangeRateDate = exchangeRate.date.toString(DATE_PATTERN),
+            link = exchangeRate.link
         )
     }
 

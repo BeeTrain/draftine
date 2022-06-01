@@ -22,6 +22,7 @@
         <item name="colorError">?attr/colorNegative</item>
         <item name="colorPositive">@color/green_600</item>
         <item name="colorHint">@color/grey_500</item>
+        <item name="colorLink">@color/blue_400</item>
 
         <item tools:ignore="NewApi" name="android:statusBarColor">?attr/colorSurface</item>
         <item tools:ignore="NewApi" name="android:windowLightStatusBar">true</item>

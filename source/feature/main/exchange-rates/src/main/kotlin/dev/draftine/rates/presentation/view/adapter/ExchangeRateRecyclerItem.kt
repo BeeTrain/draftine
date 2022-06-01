@@ -6,7 +6,9 @@ import dev.draftine.ui.card.ExchangeRateCard
 import dev.draftine.ui.recycler.Item
 import dev.draftine.ui.recycler.RecyclerItem
 
-class ExchangeRateRecyclerItem : RecyclerItem<ExchangeRateCard, ExchangeRateCardModel>() {
+class ExchangeRateRecyclerItem(
+    private val onExchangeRateLinkClick: ((String) -> Unit)?
+) : RecyclerItem<ExchangeRateCard, ExchangeRateCardModel>() {
 
     override val layoutId = R.layout.exchange_rate_item
 
@@ -18,6 +20,9 @@ class ExchangeRateRecyclerItem : RecyclerItem<ExchangeRateCard, ExchangeRateCard
             title = item.currencyTitle
             date = item.exchangeRateDate
             value = item.exchangeRateValue
+            item.link?.let { exchangeRateLink ->
+                linkIconClickListener = { onExchangeRateLinkClick?.invoke(exchangeRateLink) }
+            }
         }
     }
 }
