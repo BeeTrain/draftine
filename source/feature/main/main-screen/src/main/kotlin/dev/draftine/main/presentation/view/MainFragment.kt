@@ -11,6 +11,7 @@ import dev.draftine.main.presentation.model.MainViewState
 import dev.draftine.main.presentation.viewmodel.MainViewModel
 import dev.draftine.rates.presentation.view.adapter.ExchangeRateRecyclerItem
 import dev.draftine.ui.appbar.Toolbar
+import dev.draftine.ui.container.PullToRefreshContainer
 import dev.draftine.ui.extension.findView
 import dev.draftine.ui.extension.unsafeLazy
 import dev.draftine.ui.extension.updateMargin
@@ -25,6 +26,7 @@ class MainFragment :
     override val viewModel: MainViewModel by viewModel()
 
     private val toolbar: Toolbar by findView(R.id.main_toolbar)
+    private val pullToRefresh: PullToRefreshContainer by findView(R.id.main_pull_to_refresh)
     private val mainList: RecyclerView by findView(R.id.main_list)
     private val mainAdapter by unsafeLazy { createMainAdapter() }
 
@@ -33,10 +35,16 @@ class MainFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        pullToRefresh.setOnRefreshListener { viewModel.loadData() }
         onExchangeRateLinkClick = { viewModel.openExchangeRateUrl(it) }
 
-        viewModel.contentState.observeOnCreated(lifecycleScope) {
-            renderState(it)
+        viewModel.apply {
+            loading.observeOnCreated(lifecycleScope) { isLoading ->
+                pullToRefresh.setLoading(isLoading)
+            }
+            contentState.observeOnCreated(lifecycleScope) { state ->
+                renderState(state)
+            }
         }
     }
 
