@@ -34,7 +34,7 @@ class TextView @JvmOverloads constructor(
         }
     }
 
-    private fun applyTextType(textType: TextType) {
+    fun applyTextType(textType: TextType) {
         val textAppearanceAttr = when (textType) {
             TextType.NONE -> null
             TextType.HEADLINE_1 -> R.attr.styleAppearanceHeadline1

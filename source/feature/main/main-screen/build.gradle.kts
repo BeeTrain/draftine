@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementation(projects.exchangeRates)
+    implementation(projects.advices)
     implementation(projects.utils)
 
     applyJodaTime()

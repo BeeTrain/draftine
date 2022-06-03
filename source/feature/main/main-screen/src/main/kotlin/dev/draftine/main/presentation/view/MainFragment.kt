@@ -3,6 +3,7 @@ package dev.draftine.main.presentation.view
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import dev.draftine.advices.presentation.adapter.AdviceRecyclerItem
 import dev.draftine.arch.extension.observeOnCreated
 import dev.draftine.arch.presentation.fragment.BaseFragment
 import dev.draftine.arch.presentation.fragment.BottomNavigationFragment
@@ -72,7 +73,8 @@ class MainFragment :
         return RecyclerAdapter.create(
             mainList,
             listOf(
-                ExchangeRateRecyclerItem(onExchangeRateLinkClick)
+                ExchangeRateRecyclerItem(onExchangeRateLinkClick),
+                AdviceRecyclerItem()
             )
         )
     }
