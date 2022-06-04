@@ -11,7 +11,11 @@ object AppConfig {
     val javaVersion = JavaVersion.VERSION_11
 }
 
-enum class BuildTypes(val title: String, val isMinifyEnabled: Boolean) {
+enum class BuildTypes(
+    val title: String,
+    val isMinifyEnabled: Boolean,
+    val keystoreFileName: String = "config/signing/draftine-debug.jks"
+) {
     DEBUG(title = "debug", isMinifyEnabled = false),
     RELEASE(title = "release", isMinifyEnabled = true)
 }

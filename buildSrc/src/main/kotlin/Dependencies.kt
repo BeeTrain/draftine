@@ -30,6 +30,8 @@ object Plugins {
     const val navigation = "androidx.navigation.safeargs.kotlin"
     const val detekt = "io.gitlab.arturbosch.detekt"
     const val dependenciesVersions = "com.github.ben-manes.versions"
+
+    const val googleServices = "com.google.gms.google-services"
 }
 
 object KotlinDependencies {
@@ -118,6 +120,21 @@ object DIDependencies {
         implementation(core)
         implementation(android)
         koinModules()
+    }
+}
+
+object FirebaseDependencies {
+
+    object Versions {
+        const val firebase = "30.1.0"
+    }
+
+    const val bom = "com.google.firebase:firebase-bom:${Versions.firebase}"
+    const val analyticsKtx = "com.google.firebase:firebase-analytics-ktx"
+
+    fun DependencyHandler.firebase() = apply {
+        implementation(platform(bom))
+        implementation(analyticsKtx)
     }
 }
 

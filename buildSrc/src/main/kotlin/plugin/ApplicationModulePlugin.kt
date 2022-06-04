@@ -3,7 +3,9 @@ package plugin
 import AndroidDependencies.navigation
 import AndroidDependencies.ui
 import AppConfig
+import BuildTypes
 import DIDependencies.koin
+import FirebaseDependencies.firebase
 import LintDependencies.lintChecks
 import NetworkDependencies.network
 import Plugins
@@ -55,6 +57,24 @@ class ApplicationModulePlugin : Plugin<Project> {
                 sourceCompatibility = AppConfig.javaVersion
                 targetCompatibility = AppConfig.javaVersion
             }
+
+            signingConfigs {
+                BuildTypes.values().forEach { buildType ->
+                    maybeCreate(buildType.title)
+                    getByName(buildType.title) {
+                        storeFile = file("${rootDir.path}/${buildType.keystoreFileName}")
+                    }
+                }
+            }
+
+            buildTypes {
+                BuildTypes.values().forEach { buildType ->
+                    getByName(buildType.title) {
+                        isMinifyEnabled = buildType.isMinifyEnabled
+                        signingConfig = signingConfigs.getByName(buildType.title)
+                    }
+                }
+            }
         }
     }
 
@@ -66,6 +86,7 @@ class ApplicationModulePlugin : Plugin<Project> {
             ui()
             koin()
             network()
+            firebase()
             navigation()
         }
     }
