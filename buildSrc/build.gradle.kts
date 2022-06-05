@@ -7,6 +7,7 @@ val navigationVersion = "2.4.2"
 val detektVersion = "1.19.0"
 val dependenciesVersion = "0.42.0"
 val googleServicesVersion = "4.3.10"
+val appDistributionVersion = "3.0.2"
 
 plugins {
     `kotlin-dsl`
@@ -34,6 +35,7 @@ dependencies {
     implementation("com.android.tools.build:gradle:$buildGradlePluginVersion")
 
     implementation("com.google.gms:google-services:$googleServicesVersion")
+    implementation("com.google.firebase:firebase-appdistribution-gradle:$appDistributionVersion")
     implementation("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion")
     implementation("com.github.ben-manes:gradle-versions-plugin:$dependenciesVersion")

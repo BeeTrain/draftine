@@ -32,6 +32,7 @@ object Plugins {
     const val dependenciesVersions = "com.github.ben-manes.versions"
 
     const val googleServices = "com.google.gms.google-services"
+    const val firebaseAppDistribution = "com.google.firebase.appdistribution"
 }
 
 object KotlinDependencies {
