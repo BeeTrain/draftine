@@ -9,10 +9,10 @@ import FirebaseDependencies.firebase
 import LintDependencies.lintChecks
 import NetworkDependencies.network
 import Plugins
+import extension.getGitVersionCode
+import extension.getGitVersionName
 import internal.applicationExtension
 import internal.configureProjectModules
-import internal.getGitVersionCode
-import internal.getGitVersionName
 import internal.setupDependencyUpdatesTask
 import internal.setupQualityCheck
 import org.gradle.api.Plugin
