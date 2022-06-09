@@ -2,6 +2,7 @@ package dev.draftine.navigation.di
 
 import dev.draftine.annotation.processing.koin.annotation.KoinModule
 import dev.draftine.browser.navigation.BrowserNavigator
+import dev.draftine.imageviewer.navigation.ImageViewerNavigator
 import dev.draftine.main.presentation.navigation.MainNavigator
 import dev.draftine.navigation.navigator.AppNavigator
 import dev.draftine.navigation.navigator.ApplicationNavigator
@@ -16,7 +17,7 @@ val navigationModule = module {
 
     single { BottomNavBarVisibilityManager() }
 
-    single { ApplicationNavigator(get()) }
+    single { ApplicationNavigator(get(), get()) }
 
     single<AppNavigator> { get<ApplicationNavigator>() }
 
@@ -29,4 +30,6 @@ val navigationModule = module {
     single<MainNavigator> { get<ApplicationNavigator>() }
 
     single<BrowserNavigator> { get<ApplicationNavigator>() }
+
+    single<ImageViewerNavigator> { get<ApplicationNavigator>() }
 }

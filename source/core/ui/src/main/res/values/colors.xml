@@ -9,4 +9,7 @@
     <color name="brand_secondary_dark">#00002f</color>
 
     <color name="exchange_rate_card_background">@color/grey_200</color>
+
+    <color name="black_alpha_30">#4D000000</color>
+
 </resources>

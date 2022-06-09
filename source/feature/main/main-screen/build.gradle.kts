@@ -1,4 +1,5 @@
-import MiscDependencies.applyJodaTime
+import MiscDependencies.coil
+import MiscDependencies.jodaTime
 
 plugins {
     id(Plugins.featureModule)
@@ -6,8 +7,10 @@ plugins {
 
 dependencies {
     implementation(projects.exchangeRates)
+    implementation(projects.imageTape)
     implementation(projects.advices)
     implementation(projects.utils)
 
-    applyJodaTime()
+    coil()
+    jodaTime()
 }

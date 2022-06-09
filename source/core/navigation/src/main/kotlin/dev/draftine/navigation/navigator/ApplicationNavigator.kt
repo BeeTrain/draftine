@@ -7,6 +7,8 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.FragmentNavigator
 import dev.draftine.browser.navigation.BrowserNavigator
 import dev.draftine.browser.presentation.BrowserLauncher
+import dev.draftine.imageviewer.navigation.ImageViewerNavigator
+import dev.draftine.imageviewer.presentation.ImageViewer
 import dev.draftine.main.presentation.navigation.MainNavigator
 import dev.draftine.navigation.R
 import dev.draftine.profile.presentation.navigation.ProfileNavigator
@@ -18,14 +20,17 @@ import dev.draftine.splash.presentation.view.SplashFragmentDirections
 import dev.draftine.ui.extension.setFadeAnim
 import dev.draftine.ui.extension.setHorizontalFullInAnim
 import dev.draftine.ui.extension.setModalFullAnim
+import dev.draftine.ui.image.Image
 
 class ApplicationNavigator(
-    private val browserLauncher: BrowserLauncher
+    private val browserLauncher: BrowserLauncher,
+    private val imageViewer: ImageViewer
 ) : AppNavigator,
     SplashNavigator,
     ProfileNavigator,
     SettingsNavigator,
     BrowserNavigator,
+    ImageViewerNavigator,
     MainNavigator {
 
     private var appNavController: NavController? = null
@@ -75,8 +80,16 @@ class ApplicationNavigator(
         openUrl(url)
     }
 
+    override fun openTapeImageInViewer(image: Image) {
+        openImageViewer(listOf(image))
+    }
+
     override fun openUrl(url: String) {
         browserLauncher.launchUrl(url)
+    }
+
+    override fun openImageViewer(images: List<Image>) {
+        imageViewer.openImageViewer(images)
     }
 
     private fun NavController.navigate(

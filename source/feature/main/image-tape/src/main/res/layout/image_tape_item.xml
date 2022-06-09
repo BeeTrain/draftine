@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dev.draftine.ui.container.LinearContainer
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <dev.draftine.ui.text.TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/keyline_2"
+        android:paddingVertical="@dimen/keyline_1"
+        android:text="@string/image_tape_title"
+        app:textType="Headline4" />
+
+    <dev.draftine.ui.list.RecyclerView
+        android:id="@+id/image_tape_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/keyline_2"
+        android:paddingVertical="@dimen/keyline_1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/image_item" />
+
+</dev.draftine.ui.container.LinearContainer>

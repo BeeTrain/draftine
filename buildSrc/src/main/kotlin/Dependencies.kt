@@ -202,10 +202,12 @@ object MiscDependencies {
         const val lottie = "5.1.1"
         const val coil = "2.1.0"
         const val joda = "2.10.14"
+        const val imageViewer = "v1.0.1"
     }
 
-    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
-    const val joda = "joda-time:joda-time:${Versions.joda}"
+    object Lottie {
+        const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+    }
 
     object Coil {
         const val coil = "io.coil-kt:coil:${Versions.coil}"
@@ -214,8 +216,16 @@ object MiscDependencies {
         const val coilVideo = "io.coil-kt:coil-video:${Versions.coil}"
     }
 
+    object Joda {
+        const val jodaTime = "joda-time:joda-time:${Versions.joda}"
+    }
+
+    object ImageViewer {
+        val imageViewer = "com.github.stfalcon-studio:StfalconImageViewer:${Versions.imageViewer}"
+    }
+
     fun DependencyHandler.lottie() = apply {
-        implementation(lottie)
+        implementation(Lottie.lottie)
     }
 
     fun DependencyHandler.coil() = apply {
@@ -225,8 +235,12 @@ object MiscDependencies {
         implementation(Coil.coilVideo)
     }
 
-    fun DependencyHandler.applyJodaTime() = apply {
-        implementation(joda)
+    fun DependencyHandler.jodaTime() = apply {
+        implementation(Joda.jodaTime)
+    }
+
+    fun DependencyHandler.imageViewer() = apply {
+        implementation(ImageViewer.imageViewer)
     }
 }
 

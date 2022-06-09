@@ -7,6 +7,7 @@ import dev.draftine.advices.presentation.adapter.AdviceRecyclerItem
 import dev.draftine.arch.extension.observeOnCreated
 import dev.draftine.arch.presentation.fragment.BaseFragment
 import dev.draftine.arch.presentation.fragment.BottomNavigationFragment
+import dev.draftine.imagetape.presentation.adapter.ImageTapeRecyclerItem
 import dev.draftine.main.R
 import dev.draftine.main.presentation.model.MainViewState
 import dev.draftine.main.presentation.viewmodel.MainViewModel
@@ -16,6 +17,7 @@ import dev.draftine.ui.container.PullToRefreshContainer
 import dev.draftine.ui.extension.findView
 import dev.draftine.ui.extension.unsafeLazy
 import dev.draftine.ui.extension.updateMargin
+import dev.draftine.ui.image.Image
 import dev.draftine.ui.list.RecyclerView
 import dev.draftine.ui.recycler.RecyclerAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,12 +34,14 @@ class MainFragment :
     private val mainAdapter by unsafeLazy { createMainAdapter() }
 
     private var onExchangeRateLinkClick: ((String) -> Unit)? = null
+    private var onTapeImageClick: ((Image) -> Unit)? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         pullToRefresh.setOnRefreshListener { viewModel.loadData() }
         onExchangeRateLinkClick = { viewModel.openExchangeRateUrl(it) }
+        onTapeImageClick = { viewModel.openImageViewer(it) }
 
         viewModel.apply {
             loading.observeOnCreated(lifecycleScope) { isLoading ->
@@ -74,7 +78,8 @@ class MainFragment :
             mainList,
             listOf(
                 ExchangeRateRecyclerItem(onExchangeRateLinkClick),
-                AdviceRecyclerItem()
+                AdviceRecyclerItem(),
+                ImageTapeRecyclerItem(onTapeImageClick)
             )
         )
     }

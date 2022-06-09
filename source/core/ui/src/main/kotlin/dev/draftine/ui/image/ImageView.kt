@@ -18,6 +18,7 @@ class ImageView
     fun loadImage(image: Image?) {
         when (image) {
             is DrawableImage -> loadDrawableImage(image)
+            is UrlImage -> loadUrlImage(image)
             null -> setImageDrawable(null)
         }
     }
@@ -27,6 +28,16 @@ class ImageView
             setImageDrawable(null)
         } else {
             load(image.drawable) {
+                applyShape(image.shape)
+            }
+        }
+    }
+
+    private fun loadUrlImage(image: UrlImage) {
+        if (image.url.isEmpty()) {
+            setImageDrawable(null)
+        } else {
+            load(image.url) {
                 applyShape(image.shape)
             }
         }

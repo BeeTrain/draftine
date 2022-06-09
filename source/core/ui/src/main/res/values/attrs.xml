@@ -42,6 +42,10 @@
         <attr format="reference" name="android:background" />
     </declare-styleable>
 
+    <declare-styleable name="LinearContainer">
+        <attr format="reference" name="android:background" />
+    </declare-styleable>
+
     <declare-styleable name="MotionContainer">
         <attr format="reference" name="android:background" />
     </declare-styleable>

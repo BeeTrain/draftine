@@ -1,4 +1,4 @@
-import MiscDependencies.applyJodaTime
+import MiscDependencies.jodaTime
 
 plugins {
     id(Plugins.featureModule)
@@ -8,5 +8,5 @@ dependencies {
     implementation(projects.ui)
     implementation(projects.network)
 
-    applyJodaTime()
+    jodaTime()
 }
