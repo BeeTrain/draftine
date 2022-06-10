@@ -19,6 +19,7 @@ class ImageViewer(
             .withOverlayView(overlayView)
             .allowZooming(true)
             .allowSwipeToDismiss(true)
+            .withHiddenStatusBar(false)
             .build()
             .also { imageViewer ->
                 overlayView.setOnClickListener { imageViewer.dismiss() }
