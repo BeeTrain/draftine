@@ -19,8 +19,11 @@ class AppInfoModelFactory(
         return when (appInfoModel) {
             is AppInfo.AppVersion -> aboutAppResources.appVersionTitle
             is AppInfo.DeviceName -> aboutAppResources.deviceNameTitle
-            is AppInfo.SdkVersion -> aboutAppResources.systemSdkVersionTitle
             is AppInfo.SystemVersion -> aboutAppResources.systemVersionTitle
+            is AppInfo.DeviceId -> aboutAppResources.deviceIdTitle
+            is AppInfo.IsEmulator -> aboutAppResources.isEmulatorTitle
+            is AppInfo.IsRooted -> aboutAppResources.isRootedTitle
+            is AppInfo.Resolution -> aboutAppResources.resolutionTitle
         }
     }
 }
