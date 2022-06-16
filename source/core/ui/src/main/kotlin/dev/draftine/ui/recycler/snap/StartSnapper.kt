@@ -15,6 +15,7 @@ class StartSnapper : LinearSnapHelper() {
     companion object {
 
         infix fun attachTo(recyclerView: RecyclerView) {
+            recyclerView.onFlingListener = null
             StartSnapper().attachToRecyclerView(recyclerView)
         }
     }
