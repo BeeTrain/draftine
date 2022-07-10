@@ -11,6 +11,7 @@ import dev.draftine.arch.presentation.navigation.BottomNavBarHost
 import dev.draftine.arch.presentation.view.OnSystemInsetsChangedListener
 import dev.draftine.navigation.navigator.AppNavigator
 import dev.draftine.navigation.presentation.BottomNavBarVisibilityManager
+import dev.draftine.permissions.PermissionsManager
 import dev.draftine.ui.container.ConstraintContainer
 import dev.draftine.ui.extension.bind
 import dev.draftine.ui.extension.updateMargin
@@ -25,6 +26,7 @@ class ApplicationActivity :
     private val viewModel: ApplicationViewModel by viewModel()
     private val navigator: AppNavigator by inject()
     private val bottomNavBarVisibilityManager: BottomNavBarVisibilityManager by inject()
+    private val permissionsManager: PermissionsManager by inject()
 
     private val rootContainer by bind<ConstraintContainer>(R.id.application_container)
     private val bottomNavigationView by bind<BottomNavBar>(R.id.application_bottom_nav_bar)
@@ -37,6 +39,7 @@ class ApplicationActivity :
         super.onCreate(savedInstanceState)
 
         bottomNavBarVisibilityManager attachTo this
+        permissionsManager attachTo this
         setupBottomNavigation()
     }
 

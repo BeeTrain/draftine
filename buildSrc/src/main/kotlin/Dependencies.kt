@@ -128,14 +128,24 @@ object FirebaseDependencies {
 
     object Versions {
         const val firebase = "30.1.0"
+        const val mlVision = "24.0.3"
+        const val mlVisionBarcode = "16.0.1"
     }
 
     const val bom = "com.google.firebase:firebase-bom:${Versions.firebase}"
     const val analyticsKtx = "com.google.firebase:firebase-analytics-ktx"
 
+    const val mlVision = "com.google.firebase:firebase-ml-vision:${Versions.mlVision}"
+    const val mlVisionBarcode = "com.google.firebase:firebase-ml-vision-barcode-model:${Versions.mlVisionBarcode}"
+
     fun DependencyHandler.firebase() = apply {
         implementation(platform(bom))
         implementation(analyticsKtx)
+    }
+
+    fun DependencyHandler.firebaseBarcode() = apply {
+        implementation(mlVision)
+        implementation(mlVisionBarcode)
     }
 }
 

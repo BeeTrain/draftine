@@ -2,6 +2,7 @@ package dev.draftine.ui.extension
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
@@ -103,4 +104,8 @@ class FragmentFindViewDelegate<T : View>(private val id: Int) : ReadOnlyProperty
 
 fun <T : View> findView(id: Int): ReadOnlyProperty<Fragment, T> {
     return FragmentFindViewDelegate(id)
+}
+
+fun Fragment.toast(text: String, duration: Int = Toast.LENGTH_SHORT) {
+    context?.toast(text, duration)
 }

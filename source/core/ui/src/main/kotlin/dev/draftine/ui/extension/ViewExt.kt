@@ -6,6 +6,7 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.annotation.AnimRes
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
@@ -119,4 +120,8 @@ fun View.updateMargin(
     updateLayoutParams<ViewGroup.MarginLayoutParams> {
         updateMargins(left, top, right, bottom)
     }
+}
+
+fun View.toast(text: String, duration: Int = Toast.LENGTH_SHORT) {
+    context.toast(text, duration)
 }
