@@ -1,7 +1,7 @@
 import AndroidDependencies.navigation
 import AndroidDependencies.ui
-import MiscDependencies.lottie
 import MiscDependencies.coil
+import MiscDependencies.lottie
 
 plugins {
     id(Plugins.androidModule)

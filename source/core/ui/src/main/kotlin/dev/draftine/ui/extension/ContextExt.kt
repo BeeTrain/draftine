@@ -52,3 +52,35 @@ fun Context.openAppSettings() {
     }
     startActivity(intent)
 }
+
+fun Context.openImageFile(imageUri: Uri) {
+    val intent = Intent().apply {
+        action = Intent.ACTION_VIEW
+        data = imageUri
+        type = "image/*"
+    }
+    startActivity(intent)
+}
+
+fun Context.openVideoFile(imageUri: Uri) {
+    val intent = Intent().apply {
+        action = Intent.ACTION_VIEW
+        data = imageUri
+        type = "video/*"
+    }
+    startActivity(intent)
+}
+
+val Context.navigationBarSize: Int
+    get() {
+        val resourceId = resources.getIdentifier(
+            "navigation_bar_height",
+            "dimen",
+            "android"
+        )
+        return if (resourceId > 0) {
+            resources.getDimensionPixelSize(resourceId)
+        } else {
+            56.px
+        }
+    }

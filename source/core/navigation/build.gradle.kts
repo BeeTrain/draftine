@@ -9,6 +9,7 @@ plugins {
 }
 
 dependencies {
+    implementation(projects.utils)
     implementation(projects.arch)
     implementation(projects.ui)
     applyScreenModules()

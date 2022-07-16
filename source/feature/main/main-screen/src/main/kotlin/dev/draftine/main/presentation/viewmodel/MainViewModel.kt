@@ -2,7 +2,7 @@ package dev.draftine.main.presentation.viewmodel
 
 import dev.draftine.arch.presentation.viewmodel.BaseViewModel
 import dev.draftine.main.domain.interactor.MainInteractor
-import dev.draftine.main.presentation.model.MainViewState
+import dev.draftine.main.presentation.model.MainScreenState
 import dev.draftine.main.presentation.navigation.MainNavigator
 import dev.draftine.main.presentation.viewmodel.mapper.MainMapper
 import dev.draftine.ui.image.Image
@@ -14,7 +14,7 @@ class MainViewModel(
     private val mainNavigator: MainNavigator
 ) : BaseViewModel() {
 
-    val contentState = MutableStateFlow<MainViewState>(MainViewState.Loading)
+    val screenState = MutableStateFlow<MainScreenState>(MainScreenState.Loading)
 
     fun openExchangeRateUrl(url: String) {
         mainNavigator.openExchangeRateUrl(url)
@@ -25,8 +25,8 @@ class MainViewModel(
             val data = mainInteractor.loadData()
                 .mapNotNull { mainMapper.map(it) }
 
-            contentState.emit(
-                MainViewState.Data(
+            screenState.emit(
+                MainScreenState.Content(
                     list = data
                 )
             )

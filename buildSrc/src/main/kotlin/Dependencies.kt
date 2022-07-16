@@ -70,6 +70,7 @@ object AndroidDependencies {
         const val fragment = "1.4.1"
         const val browser = "1.3.0"
         const val swipeRefresh = "1.1.0"
+        const val camera = "1.1.0"
     }
 
     const val coreKtx = "androidx.core:core-ktx:${Versions.core}"
@@ -87,6 +88,26 @@ object AndroidDependencies {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 
     const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+
+    object CameraX {
+
+        const val core = "androidx.camera:camera-core:${Versions.camera}"
+        const val camera2 = "androidx.camera:camera-camera2:${Versions.camera}"
+        const val lifecycle = "androidx.camera:camera-lifecycle:${Versions.camera}"
+        const val video =  "androidx.camera:camera-video:${Versions.camera}"
+
+        const val view = "androidx.camera:camera-view:${Versions.camera}"
+        const val extensions = "androidx.camera:camera-extensions:${Versions.camera}"
+    }
+
+    fun DependencyHandler.cameraX() = apply {
+        implementation(CameraX.core)
+        implementation(CameraX.camera2)
+        implementation(CameraX.lifecycle)
+        implementation(CameraX.video)
+        implementation(CameraX.view)
+        implementation(CameraX.extensions)
+    }
 
     fun DependencyHandler.ui() = apply {
         implementation(coreKtx)

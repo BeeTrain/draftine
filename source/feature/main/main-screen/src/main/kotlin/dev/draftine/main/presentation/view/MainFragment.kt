@@ -9,7 +9,7 @@ import dev.draftine.arch.presentation.fragment.BaseFragment
 import dev.draftine.arch.presentation.fragment.BottomNavigationFragment
 import dev.draftine.imagetape.presentation.adapter.ImageTapeRecyclerItem
 import dev.draftine.main.R
-import dev.draftine.main.presentation.model.MainViewState
+import dev.draftine.main.presentation.model.MainScreenState
 import dev.draftine.main.presentation.viewmodel.MainViewModel
 import dev.draftine.rates.presentation.view.adapter.ExchangeRateRecyclerItem
 import dev.draftine.ui.appbar.Toolbar
@@ -47,7 +47,7 @@ class MainFragment :
             loading.observeOnCreated(lifecycleScope) { isLoading ->
                 pullToRefresh.setLoading(isLoading)
             }
-            contentState.observeOnCreated(lifecycleScope) { state ->
+            screenState.observeOnCreated(lifecycleScope) { state ->
                 renderState(state)
             }
         }
@@ -62,15 +62,15 @@ class MainFragment :
         view?.updateMargin(top = insetTop)
     }
 
-    private fun renderState(state: MainViewState) {
+    private fun renderState(state: MainScreenState) {
         when (state) {
-            is MainViewState.Data -> showData(state)
-            is MainViewState.Loading -> Unit
+            is MainScreenState.Content -> showData(state)
+            is MainScreenState.Loading -> Unit
         }
     }
 
-    private fun showData(data: MainViewState.Data) {
-        mainAdapter.submitList(data.list)
+    private fun showData(content: MainScreenState.Content) {
+        mainAdapter.submitList(content.list)
     }
 
     private fun createMainAdapter(): RecyclerAdapter {

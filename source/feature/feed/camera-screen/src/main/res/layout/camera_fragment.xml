@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dev.draftine.ui.container.ConstraintContainer
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/camera_preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ExternalViewUsage" />
+
+    <dev.draftine.ui.image.ImageView
+        android:id="@+id/camera_capture_photo_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginStart="56dp"
+        android:background="@color/grey_200"
+        android:elevation="2dp"
+        android:padding="@dimen/keyline_2"
+        android:src="@drawable/ic_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <dev.draftine.ui.image.ImageView
+        android:id="@+id/camera_capture_video_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="56dp"
+        android:background="@color/grey_200"
+        android:elevation="2dp"
+        android:padding="@dimen/keyline_2"
+        android:src="@drawable/ic_video_start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</dev.draftine.ui.container.ConstraintContainer>

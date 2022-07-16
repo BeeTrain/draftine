@@ -2,6 +2,7 @@ package dev.draftine.arch.presentation.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -42,6 +43,7 @@ abstract class BaseFragment<T : BaseViewModel>(@LayoutRes contentLayoutId: Int) 
         super.onDestroy()
     }
 
+    @CallSuper
     override fun onResume() {
         super.onResume()
         runOnResume?.run()

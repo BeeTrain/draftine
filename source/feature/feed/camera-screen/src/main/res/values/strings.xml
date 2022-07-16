@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="camera_screen_title">Camera</string>
+
+    <string name="camera_permissions_denied_message">Camera permissions denied</string>
+    <string name="camera_permissions_rationale_message">Grant the necessary permissions to use the camera</string>
+    <string name="camera_request_permissions_button_title">Request</string>
+    <string name="camera_open_app_settings_button_title">Settings</string>
+    <string name="camera_open_file_button_title">Open</string>
+
+    <string name="photo_capture_succeeded_message" formatted="false">Photo capture succeeded: %s</string>
+    <string name="photo_capture_failed_message" formatted="false">Photo capture failed: %s</string>
+    <string name="video_capture_succeeded_message" formatted="false">Video capture succeeded: %s</string>
+    <string name="video_capture_failed_message" formatted="false">Video capture failed: %s</string>
+
+</resources>

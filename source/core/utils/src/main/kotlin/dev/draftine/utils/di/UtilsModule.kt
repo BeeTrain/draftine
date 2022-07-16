@@ -1,9 +1,11 @@
 package dev.draftine.utils.di
 
 import dev.draftine.annotation.processing.koin.annotation.KoinModule
+import dev.draftine.utils.camera.CameraController
 import dev.draftine.utils.info.SystemInfoManager
 import dev.draftine.utils.lifecycle.ActivityContextProvider
 import dev.draftine.utils.lifecycle.ActivityLifecycler
+import dev.draftine.utils.permissions.PermissionsManager
 import dev.draftine.utils.resources.ResourcesProvider
 import dev.draftine.utils.theme.AppThemeApplier
 import dev.draftine.utils.theme.api.ThemeService
@@ -34,4 +36,6 @@ val utilsModule = module {
         )
     }
     factory { AppThemeMapper() }
+    single { PermissionsManager(get()) }
+    single { CameraController(get(), get()) }
 }

@@ -7,9 +7,20 @@
     app:startDestination="@+id/feed">
 
     <fragment
-            android:id="@+id/feed"
-            android:name="dev.draftine.feed.presentation.view.FeedFragment"
-            android:label="@string/feed_screen_title"
-            tools:layout="@layout/feed_fragment">
+        android:id="@+id/feed"
+        android:label="@string/feed_screen_title"
+        android:name="dev.draftine.feed.presentation.view.FeedFragment"
+        tools:layout="@layout/feed_fragment">
+
+        <action
+            android:id="@+id/openCamera"
+            app:destination="@+id/camera" />
     </fragment>
+
+    <fragment
+        android:id="@+id/camera"
+        android:label="@string/camera_screen_title"
+        android:name="dev.draftine.camera.presentation.view.CameraFragment"
+        tools:layout="@layout/camera_fragment" />
+
 </navigation>

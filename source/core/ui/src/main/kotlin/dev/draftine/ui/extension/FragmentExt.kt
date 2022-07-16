@@ -2,6 +2,7 @@ package dev.draftine.ui.extension
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -108,4 +109,15 @@ fun <T : View> findView(id: Int): ReadOnlyProperty<Fragment, T> {
 
 fun Fragment.toast(text: String, duration: Int = Toast.LENGTH_SHORT) {
     context?.toast(text, duration)
+}
+
+fun Fragment.enableTouch() {
+    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+}
+
+fun Fragment.disableTouch() {
+    activity?.window?.setFlags(
+        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+    )
 }

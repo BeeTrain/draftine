@@ -1,11 +1,13 @@
 package dev.draftine.ui.extension
 
 import android.graphics.Rect
+import android.graphics.drawable.Drawable
 import android.os.SystemClock
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.AnimRes
 import androidx.annotation.AttrRes
@@ -22,8 +24,11 @@ import androidx.core.view.marginRight
 import androidx.core.view.marginTop
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMargins
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 
 const val DEFAULT_TIME_OUT = 350L
+const val SNACKBAR_TEXT_MAX_LINES = 5
 
 fun View.doOnApplyWindowInsets(block: (View, insets: WindowInsetsCompat, initialPadding: Rect) -> WindowInsetsCompat) {
     val initialPadding = this.recordInitialPadding()
@@ -124,4 +129,52 @@ fun View.updateMargin(
 
 fun View.toast(text: String, duration: Int = Toast.LENGTH_SHORT) {
     context.toast(text, duration)
+}
+
+fun View.doOnDoubleClick(interval: Int = 300, onDoubleClick: (View) -> Unit) {
+    val safeClickListener = DoubleClickListener(interval) {
+        onDoubleClick(it)
+    }
+    setOnClickListener(safeClickListener)
+}
+
+class DoubleClickListener(
+    private val defaultInterval: Int,
+    private val onDoubleClick: (View) -> Unit
+) : View.OnClickListener {
+    private var lastClickTime: Long = 0
+
+    override fun onClick(v: View) {
+        val clickTime = System.currentTimeMillis()
+        if (clickTime - lastClickTime < defaultInterval) {
+            onDoubleClick(v)
+            lastClickTime = 0
+        }
+        lastClickTime = clickTime
+    }
+}
+
+@Suppress("LongParameterList")
+fun View.snackbar(
+    message: String,
+    actionText: String? = null,
+    onActionClick: ((View) -> Unit)? = null,
+    @ColorInt backgroundColor: Int? = null,
+    duration: Int = BaseTransientBottomBar.LENGTH_SHORT,
+    maxLines: Int = SNACKBAR_TEXT_MAX_LINES
+) {
+    Snackbar.make(this, message, duration).apply {
+        view.translationY = (-context.navigationBarSize).toFloat()
+
+        val snackTextView = findViewById<TextView?>(com.google.android.material.R.id.snackbar_text)
+        snackTextView?.maxLines = maxLines
+
+        if (backgroundColor != null) {
+            setBackgroundTint(backgroundColor)
+        }
+        if (actionText != null) {
+            setAction(actionText, onActionClick)
+        }
+        show()
+    }
 }

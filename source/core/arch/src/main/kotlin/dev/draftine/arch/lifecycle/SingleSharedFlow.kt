@@ -1,11 +1,9 @@
 package dev.draftine.arch.lifecycle
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 
 class SingleSharedFlow<T> : MutableSharedFlow<T> {
 
@@ -13,6 +11,7 @@ class SingleSharedFlow<T> : MutableSharedFlow<T> {
 
     override val replayCache: List<T>
         get() = mutableSharedFlow.replayCache
+
     override val subscriptionCount: StateFlow<Int>
         get() = mutableSharedFlow.subscriptionCount
 

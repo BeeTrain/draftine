@@ -15,9 +15,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.updatePadding
 import com.google.android.material.appbar.MaterialToolbar
 import dev.draftine.ui.R
-import dev.draftine.ui.extension.dpToPx
 import dev.draftine.ui.extension.getAttrColor
 import dev.draftine.ui.extension.getDrawableExt
+import dev.draftine.ui.extension.px
 import dev.draftine.ui.extension.unsafeLazy
 import kotlin.math.max
 
@@ -32,7 +32,7 @@ class Toolbar
 
     private val dividerPaint by unsafeLazy {
         Paint().apply {
-            strokeWidth = 1F.dpToPx().toFloat()
+            strokeWidth = 1.px.toFloat()
             color = context.getAttrColor(R.attr.colorOnSurface)
         }
     }

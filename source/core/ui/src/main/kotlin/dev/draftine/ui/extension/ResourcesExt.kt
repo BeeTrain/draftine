@@ -20,3 +20,15 @@ fun Float.spToPx(): Int {
 }
 
 fun Int.spToPx(): Int = this.toFloat().spToPx()
+
+val Int.dp
+    get() = this.pxToDp()
+
+val Float.dp
+    get() = this.pxToDp()
+
+val Int.px
+    get() = this.dpToPx()
+
+val Float.px
+    get() = this.dpToPx()
