@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+private val versionTagRegex = Regex("^([vd]+)([\\.\\d])+\$")
+
 fun branchName(): String {
     return getFullBranchName().split("/").last().toString()
 }
@@ -22,7 +24,6 @@ fun getFullBranchName(): String {
 
 fun versionName(): String {
     val tag = getText(execute("git describe --tags")).split("-").first().trim()
-    val versionTagRegex = Regex("^([vd]+)([\\.\\d])+\$")
 
     return if (tag.matches(versionTagRegex)) {
         tag.substring(1)
@@ -44,22 +45,19 @@ fun buildDate(): String {
 }
 
 fun changes(): String {
-    val gitTag = getText(execute("git tag --sort=committerdate")).trim()
-    println("gitTag = ${gitTag}")
+    val versionTags = getText(execute("git tag --sort=committerdate")).trim()
+        .split("\n")
+        .filter { tag -> tag.matches(versionTagRegex) }
+        .takeLast(2)
 
-    val tagList = gitTag.split("\n")
-    println("tagList = ${tagList}")
-
-    return if (tagList.size < 2) {
-        ""
-    } else {
-        val lastTags = tagList.takeLast(2)
-        println("lastTags = ${lastTags}")
-
-        val changes = getText(execute("git log --pretty=oneline ^${lastTags.first()} ${lastTags.last()}"))
-        println("changes = ${changes}")
-
-        changes
+    return when {
+        versionTags.size < 2 -> ""
+        else -> {
+            getText(execute("git log --pretty=oneline ^${versionTags.first()} ${versionTags.last()}"))
+                .split(" ")
+                .drop(1)
+                .joinToString(" ")
+        }
     }
 }
 
@@ -69,5 +67,5 @@ fun prepareReleaseNotes(): String {
         "Version Code: ${versionCode()}\n" +
         "Commit: ${refHash()}\n" +
         "Build date: ${buildDate()}\n" +
-        "Changes: \n ${changes()}"
+        "Changes:\n${changes()}"
 }
