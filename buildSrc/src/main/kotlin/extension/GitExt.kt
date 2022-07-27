@@ -47,25 +47,20 @@ fun changes(): String {
     val gitTag = getText(execute("git tag"))
     println("gitTag = ${gitTag}")
 
-    val gitTagSort = getText(execute("git tag --sort:-v:refname"))
-    println("gitTagSort = ${gitTagSort}")
+    val tagList = gitTag.split("\n")
+    println("tagList = ${tagList}")
 
-    val tagsText1 = getText(execute("git tag --sort=-v:refname | head -n 2"))
-    println("tagsText1 = ${tagsText1}")
+    return if (tagList.size < 2) {
+        ""
+    } else {
+        val lastTags = tagList.takeLast(2)
+        println("lastTags = ${lastTags}")
 
-    val tagsText2 = getText(execute("git tag --sort=-v:refname | Select -First 2"))
-    println("tagsText2 = ${tagsText2}")
+        val changes = getText(execute("git log --pretty=oneline ^${lastTags.first()} ${lastTags.last()}"))
+        println("changes = ${changes}")
 
-    val lastTags = tagsText1.split("\n")
-
-    val changes = when {
-        lastTags.size < 2 -> ""
-        else -> getText(execute("git log --pretty=oneline ^${lastTags.first()} ${lastTags.last()}"))
+        changes
     }
-
-    println("changes = ${changes}")
-
-    return changes
 }
 
 fun prepareReleaseNotes(): String {
