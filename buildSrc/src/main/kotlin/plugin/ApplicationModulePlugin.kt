@@ -38,6 +38,7 @@ class ApplicationModulePlugin : Plugin<Project> {
             apply(plugin = Plugins.kotlinKapt)
             apply(plugin = Plugins.detekt)
             apply(plugin = Plugins.dependenciesVersions)
+            apply(plugin = Plugins.firebaseCrashlytics)
         }
     }
 

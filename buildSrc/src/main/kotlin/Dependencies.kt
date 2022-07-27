@@ -33,6 +33,7 @@ object Plugins {
 
     const val googleServices = "com.google.gms.google-services"
     const val firebaseAppDistribution = "com.google.firebase.appdistribution"
+    const val firebaseCrashlytics = "com.google.firebase.crashlytics"
 }
 
 object KotlinDependencies {
@@ -155,6 +156,7 @@ object FirebaseDependencies {
 
     const val bom = "com.google.firebase:firebase-bom:${Versions.firebase}"
     const val analyticsKtx = "com.google.firebase:firebase-analytics-ktx"
+    const val crashlyticsKtx = "com.google.firebase:firebase-crashlytics-ktx"
 
     const val mlVision = "com.google.firebase:firebase-ml-vision:${Versions.mlVision}"
     const val mlVisionBarcode = "com.google.firebase:firebase-ml-vision-barcode-model:${Versions.mlVisionBarcode}"
@@ -162,6 +164,11 @@ object FirebaseDependencies {
     fun DependencyHandler.firebase() = apply {
         implementation(platform(bom))
         implementation(analyticsKtx)
+        implementation(crashlyticsKtx)
+    }
+
+    fun DependencyHandler.crashlytics() = apply {
+        implementation(crashlyticsKtx)
     }
 
     fun DependencyHandler.firebaseBarcode() = apply {
