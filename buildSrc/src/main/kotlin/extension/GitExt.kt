@@ -44,12 +44,22 @@ fun buildDate(): String {
 }
 
 fun changes(): String {
-    val lastTags = getText(execute("git tag --sort=-version:refname | head -n 2")).split("\n")
+    val tagsText1 = getText(execute("git tag --sort=-version:refname | head -n 2"))
+    println("tagsText1 = ${tagsText1}")
 
-    return when {
+    val tagsText2 = getText(execute("git tag --sort=-version:refname | Select -First 2"))
+    println("tagsText2 = ${tagsText2}")
+
+    val lastTags = tagsText1.split("\n")
+
+    val changes = when {
         lastTags.size < 2 -> ""
         else -> getText(execute("git log --pretty=oneline ^${lastTags.first()} ${lastTags.last()}"))
     }
+
+    println("changes = ${changes}")
+
+    return changes
 }
 
 fun prepareReleaseNotes(): String {
