@@ -44,10 +44,16 @@ fun buildDate(): String {
 }
 
 fun changes(): String {
-    val tagsText1 = getText(execute("git tag --sort=-version:refname | head -n 2"))
+    val gitTag = getText(execute("git tag"))
+    println("gitTag = ${gitTag}")
+
+    val gitTagSort = getText(execute("git tag --sort:-v:refname"))
+    println("gitTagSort = ${gitTagSort}")
+
+    val tagsText1 = getText(execute("git tag --sort=-v:refname | head -n 2"))
     println("tagsText1 = ${tagsText1}")
 
-    val tagsText2 = getText(execute("git tag --sort=-version:refname | Select -First 2"))
+    val tagsText2 = getText(execute("git tag --sort=-v:refname | Select -First 2"))
     println("tagsText2 = ${tagsText2}")
 
     val lastTags = tagsText1.split("\n")
