@@ -44,7 +44,7 @@ fun buildDate(): String {
 }
 
 fun changes(): String {
-    val gitTag = getText(execute("git tag"))
+    val gitTag = getText(execute("git tag")).trim()
     println("gitTag = ${gitTag}")
 
     val tagList = gitTag.split("\n")
