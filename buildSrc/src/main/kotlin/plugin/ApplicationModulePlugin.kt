@@ -9,8 +9,8 @@ import FirebaseDependencies.firebase
 import LintDependencies.lintChecks
 import NetworkDependencies.network
 import Plugins
-import extension.getGitVersionCode
-import extension.getGitVersionName
+import extension.versionCode
+import extension.versionName
 import internal.applicationExtension
 import internal.configureProjectModules
 import internal.setupDependencyUpdatesTask
@@ -49,8 +49,8 @@ class ApplicationModulePlugin : Plugin<Project> {
                 applicationId = AppConfig.applicationId
                 minSdk = AppConfig.minSdkVersion
                 targetSdk = AppConfig.targetSdkVersion
-                versionCode = getGitVersionCode()
-                versionName = getGitVersionName()
+                versionCode = versionCode()
+                versionName = versionName()
             }
 
             compileOptions {

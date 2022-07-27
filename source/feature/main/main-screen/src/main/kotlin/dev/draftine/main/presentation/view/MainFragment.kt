@@ -2,7 +2,6 @@ package dev.draftine.main.presentation.view
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.lifecycleScope
 import dev.draftine.advices.presentation.adapter.AdviceRecyclerItem
 import dev.draftine.arch.extension.observeOnCreated
 import dev.draftine.arch.presentation.fragment.BaseFragment
@@ -44,10 +43,10 @@ class MainFragment :
         onTapeImageClick = { viewModel.openImageViewer(it) }
 
         viewModel.apply {
-            loading.observeOnCreated(lifecycleScope) { isLoading ->
+            loading.observeOnCreated(this@MainFragment) { isLoading ->
                 pullToRefresh.setLoading(isLoading)
             }
-            screenState.observeOnCreated(lifecycleScope) { state ->
+            screenState.observeOnCreated(this@MainFragment) { state ->
                 renderState(state)
             }
         }

@@ -6,5 +6,5 @@ interface MainNavigator {
 
     fun openExchangeRateUrl(url: String)
 
-    fun openTapeImageInViewer(image: Image)
+    fun openTapeImageInViewer(images: List<Image>, selectedImage: Image)
 }

@@ -4,5 +4,5 @@ import dev.draftine.ui.image.Image
 
 interface ImageViewerNavigator {
 
-    fun openImageViewer(images: List<Image>)
+    fun openImageViewer(images: List<Image>, selectedImage: Image)
 }

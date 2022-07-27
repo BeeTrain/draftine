@@ -52,12 +52,8 @@ class CameraFragment :
             cameraResultMessageEvent.observeOnCreated(lifecycleScope) { resultMessage ->
                 renderCameraResultMessage(resultMessage)
             }
+            checkPermissions()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.checkPermissions()
     }
 
     override fun onApplySystemInsets(insetTop: Int, insetBottom: Int) {

@@ -91,16 +91,16 @@ class ApplicationNavigator(
         openUrl(url)
     }
 
-    override fun openTapeImageInViewer(image: Image) {
-        openImageViewer(listOf(image))
+    override fun openTapeImageInViewer(images: List<Image>, selectedImage: Image) {
+        openImageViewer(images, selectedImage)
     }
 
     override fun openUrl(url: String) {
         browserLauncher.launchUrl(url)
     }
 
-    override fun openImageViewer(images: List<Image>) {
-        imageViewer.openImageViewer(images)
+    override fun openImageViewer(images: List<Image>, selectedImage: Image) {
+        imageViewer.openImageViewer(images, selectedImage)
     }
 
     override fun openCamera() {

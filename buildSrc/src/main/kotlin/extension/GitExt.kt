@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-fun getBranchName(): String {
+fun branchName(): String {
     return getFullBranchName().split("/").last().toString()
 }
 
@@ -20,7 +20,7 @@ fun getFullBranchName(): String {
     }
 }
 
-fun getGitVersionName(): String {
+fun versionName(): String {
     val tag = getText(execute("git describe --tags")).split("-").first().trim()
     val versionTagRegex = Regex("^([vd]+)([\\.\\d])+\$")
 
@@ -31,22 +31,32 @@ fun getGitVersionName(): String {
     }
 }
 
-fun getGitVersionCode(): Int {
+fun versionCode(): Int {
     return ((Date().time / 1000 - 1451606400) / 10).toInt()
 }
 
-fun getGitRefHash(): String {
+fun refHash(): String {
     return getText(execute("git rev-parse HEAD")).substring(0, 8)
 }
 
-fun buildTime(): String {
+fun buildDate(): String {
     return SimpleDateFormat("HH:mm dd-MM-yyyy", Locale.getDefault()).format(Date())
 }
 
+fun changes(): String {
+    val lastTags = getText(execute("git tag --sort=-version:refname | head -n 2")).split("\n")
+
+    return when {
+        lastTags.size < 2 -> ""
+        else -> getText(execute("git log --pretty=oneline ^${lastTags.first()} ${lastTags.last()}"))
+    }
+}
+
 fun prepareReleaseNotes(): String {
-    return "Branch: ${getBranchName()}\n" +
-        "Version: ${getGitVersionName()}\n" +
-        "Version Code: ${getGitVersionCode()}\n" +
-        "Commit: ${getGitRefHash()}\n" +
-        "Build time: ${buildTime()}\n"
+    return "Branch: ${branchName()}\n" +
+        "Version: ${versionName()}\n" +
+        "Version Code: ${versionCode()}\n" +
+        "Commit: ${refHash()}\n" +
+        "Build date: ${buildDate()}\n" +
+        "Changes: \n ${changes()}"
 }

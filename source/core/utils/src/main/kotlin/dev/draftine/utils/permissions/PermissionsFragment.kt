@@ -49,7 +49,7 @@ class PermissionsFragment : Fragment() {
         for (i in permissions.indices) {
             val granted = grantResults[i] == PackageManager.PERMISSION_GRANTED
             permissionsGranted = permissionsGranted && granted
-            if (!showRationale && !granted && shouldShowRequestPermissionRationale[i]) {
+            if (showRationale.not() && granted.not() && shouldShowRequestPermissionRationale[i]) {
                 showRationale = true
             }
             permissionsList.add(Permission(permissions[i], granted, shouldShowRequestPermissionRationale[i]))

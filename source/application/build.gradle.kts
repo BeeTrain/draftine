@@ -14,7 +14,7 @@ android {
             getByName(title) {
                 firebaseAppDistribution {
                     appId = System.getenv(AppConfig.KEY_APP_ID)
-                    group = AppConfig.testingGroup
+                    groups = AppConfig.testingGroup
                     releaseNotes = prepareReleaseNotes()
                 }
             }

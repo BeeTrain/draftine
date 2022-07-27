@@ -6,6 +6,7 @@ import dev.draftine.main.presentation.view.MainFragment
 import dev.draftine.main.presentation.viewmodel.MainViewModel
 import dev.draftine.main.presentation.viewmodel.mapper.AdviceMapper
 import dev.draftine.main.presentation.viewmodel.mapper.ExchangeRateMapper
+import dev.draftine.main.presentation.viewmodel.mapper.ImageTapeListMapper
 import dev.draftine.main.presentation.viewmodel.mapper.ImageTapeMapper
 import dev.draftine.main.presentation.viewmodel.mapper.MainMapper
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -20,7 +21,8 @@ val mainModule = module {
             MainViewModel(
                 mainInteractor = get(),
                 mainMapper = get(),
-                mainNavigator = get(),
+                imageTapeListMapper = get(),
+                mainNavigator = get()
             )
         }
         factory { MainMapper(get(), get(), get()) }
@@ -28,5 +30,6 @@ val mainModule = module {
         factory { ExchangeRateMapper(get()) }
         factory { AdviceMapper() }
         factory { ImageTapeMapper() }
+        factory { ImageTapeListMapper() }
     }
 }
