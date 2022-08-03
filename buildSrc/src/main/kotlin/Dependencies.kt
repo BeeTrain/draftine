@@ -8,7 +8,7 @@ import internal.lintChecks
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.project
 
-const val kotlinVersion = "1.6.21"
+const val kotlinVersion = "1.7.10"
 
 object Plugins {
 
